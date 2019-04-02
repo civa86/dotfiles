@@ -67,7 +67,3 @@ Code formatting with [prettier](https://prettier.io/) and VSCode prettier extens
 ```bash
 cp <dotfiles>/.prettierrc <your_project_root_folder>
 ```
-
-### Vhost
-
-...
