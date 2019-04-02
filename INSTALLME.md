@@ -1,0 +1,42 @@
+# Software List [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+
+| SOFTWARE                                                      | DESCRIPTION             |
+| ------------------------------------------------------------- | ----------------------- |
+| [Homebrew](https://brew.sh)                                   | MacOSX Package Manager  |
+| [Git](https://git-scm.com/)                                   | Software Versioning     |
+| [VSCode](https://code.visualstudio.com/)                      | Code Editor             |
+| [NodeJS](https://nodejs.org)                                  | JavaScript Runtime      |
+| [NVM](https://github.com/creationix/nvm)                      | Node Version Manager    |
+| [Docker](https://www.docker.com/products/docker-desktop)      | Container Manager       |
+| [VirtualBox](https://www.virtualbox.org/)                     | Virtual Machine Manager |
+| [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) | MySQL Client            |
+| [Robo 3T](https://robomongo.org/)                             | MondoDB Client          |
+| [Postman](https://www.getpostman.com/)                        | REST API Client         |
+| [Sourcetree](https://www.sourcetreeapp.com/)                  | Git Client              |
+
+## Brew Packages
+
+```bash
+brew install <package_name>
+```
+
+| PACKAGES                                                                                | DESCRIPTION                     |
+| --------------------------------------------------------------------------------------- | ------------------------------- |
+| [bash-completion](https://github.com/scop/bash-completion)                              | Bash autocomplete helper        |
+| [git-flow](https://it.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) | Git extension                   |
+| [awscli](https://aws.amazon.com/it/cli/)                                                | Amazon Web Service CLI          |
+| [yarn](https://yarnpkg.com/lang/en/)                                                    | NPM Package manager alternative |
+| [ruby](https://www.ruby-lang.org/en/)                                                   | Ruby Environment                |
+
+## NPM Global Packages
+
+```bash
+npm install -g <package_name>
+```
+
+| PACKAGES                                                             | DESCRIPTION                             |
+| -------------------------------------------------------------------- | --------------------------------------- |
+| [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) | Check dependencies version of a project |
+| [firebase-tools](https://firebase.google.com/docs/cli/)              | CLI to manage firebase projects         |
+| [create-react-app](https://facebook.github.io/create-react-app/)     | CLI to manage React scaffolding         |
+| [@vue/cli](https://cli.vuejs.org/guide/creating-a-project.html)      | CLI to manage VueJS scaffolding         |
