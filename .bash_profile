@@ -39,7 +39,7 @@ alias mongo-stop='docker stop mongo-local && docker rm mongo-local'
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # PS1
-PS1="\[$YELLOW\][\t]\[$COLOR_NONE\]\[$GREEN\]\$(__git_ps1)\[$COLOR_NONE\]\[$CYAN\]\$(__docker_machine_ps1)\[$COLOR_NONE\] \w\n\[$YELLOW\]└─>\[$COLOR_NONE\] "
+PS1="[\t]\[$GREEN\]\$(__git_ps1 ' [%s]')\[$COLOR_NONE\]\[$CYAN\]\$(__docker_machine_ps1 ' [%s]')\[$COLOR_NONE\] \[$YELLOW\][\w]\[$COLOR_NONE\]\n└─> "
 
 # PATH
 export PATH="$DOTFILES/bash_scripts/bin:$HOME/.gem/ruby/2.3.0/bin:$HOME/.rbenv/bin:/Applications/MySQLWorkbench.app/Contents/MacOS:$PATH"
