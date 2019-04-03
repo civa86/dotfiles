@@ -89,7 +89,7 @@ then
 
     git add .
 
-    git commit -m "Bump Version from $CURRENT_VERSION to $RELEASE_NUM"
+    git commit -m "release candidate v$RELEASE_NUM"
 
     echo -e "\n\t"$GREEN"Release"$COLOR_RESET" $RELEASE_NUM "$GREEN"started!"$COLOR_RESET
 
