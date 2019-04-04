@@ -16,6 +16,24 @@ bash-completion-install
 
 - bash-completion installed
 
+---
+
+## prettier-rules-install
+
+Copy prettier code style rules in current project
+
+**Usage**
+
+```bash
+prettier-rules-install
+```
+
+**Requirements**
+
+- valid npm project (package.json)
+
+---
+
 ## extract-package-version
 
 Print the current version of package.json.
@@ -29,6 +47,8 @@ extract-package-version
 **Requirements**
 
 - valid npm project (package.json)
+
+---
 
 ## release
 
