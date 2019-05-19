@@ -5,8 +5,5 @@
 source "`dirname $0`"/../utils.sh
 
 SCRIPTS_FOLDER=$( cd "$(dirname "$0")"/../.. ; pwd -P )
-PACKAGE_FILE="$PWD/package.json"
-
-is_file_present $PACKAGE_FILE "Run command: npm init"
 
 cp $SCRIPTS_FOLDER/.prettierrc .
