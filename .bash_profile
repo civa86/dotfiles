@@ -28,7 +28,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 # ALIAS
-alias ll='ls -alf'
+alias ll='ls -al'
 alias gifify='docker run -v $(pwd):/data civa86/gifify-light'
 alias dotnet-dev='docker run -it -v $(pwd):/app -p 5000:5000 civa86/dotnet-dev'
 alias mysql-start='docker run -d --name mysql-local -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 mysql:5.7'
