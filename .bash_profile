@@ -45,7 +45,8 @@ alias mongo-stop='docker stop mongo-local && docker rm mongo-local'
 PS1="[\t]\[$GREEN\]\$(__git_ps1 ' [%s]')\[$COLOR_NONE\]\[$CYAN\]\$(__docker_machine_ps1 ' [%s]')\[$COLOR_NONE\] \[$YELLOW\][\w]\[$COLOR_NONE\]\n└─⌘ "
 
 # PATH
-export PATH="$DOTFILES/bash_scripts/bin:$HOME/.gem/ruby/2.3.0/bin:$HOME/.rbenv/bin:/Applications/MySQLWorkbench.app/Contents/MacOS:$PATH"
+#export PATH="$DOTFILES/bash_scripts/bin:$HOME/.gem/ruby/2.3.0/bin:$HOME/.rbenv/bin:/Applications/MySQLWorkbench.app/Contents/MacOS:$PATH"
+export PATH="$DOTFILES/bash_scripts/bin:$HOME/.gem/ruby/2.3.0/bin:$HOME/.rbenv/bin:$PATH"
 
 # RUBY rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
