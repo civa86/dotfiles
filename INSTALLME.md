@@ -24,7 +24,7 @@ brew install <package_name>
 | --------------------------------------------------------------------------------------- | ------------------------------- |
 | [bash-completion](https://github.com/scop/bash-completion)                              | Bash autocomplete helper        |
 | [git-flow](https://it.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) | Git extension                   |
-| [awscli](https://aws.amazon.com/it/cli/)                                                | Amazon Web Service CLI          |
+| [awscli](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html)       | Amazon Web Service CLI          |
 | [yarn](https://yarnpkg.com/lang/en/)                                                    | NPM Package manager alternative |
 | [ruby](https://www.ruby-lang.org/en/)                                                   | Ruby Environment                |
 
