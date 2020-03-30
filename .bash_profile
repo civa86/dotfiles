@@ -48,5 +48,11 @@ PS1="[\t]\[$GREEN\]\$(__git_ps1 ' [%s]')\[$COLOR_NONE\]\[$CYAN\]\$(__docker_mach
 #export PATH="$DOTFILES/bash_scripts/bin:$HOME/.gem/ruby/2.3.0/bin:$HOME/.rbenv/bin:/Applications/MySQLWorkbench.app/Contents/MacOS:$PATH"
 export PATH="$DOTFILES/bash_scripts/bin:$HOME/.gem/ruby/2.3.0/bin:$HOME/.rbenv/bin:$PATH"
 
+
+# AWS CLI SETUP
+if [ -x "$(command -v aws)" ] && [ -x "$(command -v aws_completer)" ]; then
+  complete -C '/usr/local/aws/bin/aws_completer' aws
+fi
+
 # RUBY rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
