@@ -23,11 +23,12 @@ ln -s <dotfiles>/.gitignore_global ~/.gitignore_global
 
 ### Terminal
 
-1. Open `Terminal.app`
-2. Menu: Terminal > Preferences (`Command` + `,`)
-3. Tab: Profiles
-4. Click `⚙` > Import
-5. Select `<dotfiles>/dario.mac.terminal` > Open
+1. Install MesloLGS NF font family
+2. Open `Terminal.app`
+3. Menu: Terminal > Preferences (`Command` + `,`)
+4. Tab: Profiles
+5. Click `⚙` > Import
+6. Select `<dotfiles>/dario.mac.terminal` > Open
 
 ### Bash
 
@@ -54,6 +55,8 @@ source ~/.zshrc
 
 # Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# powerlevel10k Theme
+git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
 ### Visual Studio Code
