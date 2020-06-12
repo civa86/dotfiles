@@ -43,7 +43,17 @@ source ~/.bash_profile
 ##### Bash Completion
 
 ```bash
-<dotfiles>/bash_scripts/bin/bash-completion-install
+<dotfiles>/shell_scripts/bin/bash-completion-install
+```
+
+#### ZSH
+
+```bash
+ln -s <dotfiles>/.zshrc ~/.zshrc
+source ~/.zshrc
+
+# Oh My Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
 ### Visual Studio Code
