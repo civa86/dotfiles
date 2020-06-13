@@ -12,11 +12,11 @@ source $DOTFILES/utils/path.sh
 source $DOTFILES/utils/zsh-env.sh
 
 plugins=(
+  zsh-syntax-highlighting
   aws
   git
   git-flow
   git-prompt
-  dotenv
   docker
   docker-compose
   kubectl
