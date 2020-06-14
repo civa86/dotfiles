@@ -16,7 +16,6 @@ plugins=(
   aws
   git
   git-flow
-  git-prompt
   docker
   docker-compose
   kubectl
