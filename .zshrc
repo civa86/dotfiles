@@ -13,6 +13,7 @@ source $DOTFILES/utils/zsh-env.sh
 
 plugins=(
   zsh-syntax-highlighting
+  colored-man-pages
   aws
   git
   git-flow
