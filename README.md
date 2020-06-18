@@ -1,12 +1,17 @@
 # @civa86/dotfiles
 
-[![Bash Shell](https://badges.frapsoft.com/bash/v1/bash.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
-
 One Repo to conf them all, One Repo to find them,
 
 One Repo to bring them all and in the MacBook bind them
 
 ## Install
+
+Clone the repository inside the `Documents` folder
+
+```bash
+cd ~/Documents
+git clone https://github.com/civa86/dotfiles.git
+```
 
 [Software List](./INSTALLME.md)
 
@@ -15,10 +20,10 @@ One Repo to bring them all and in the MacBook bind them
 ### Git
 
 ```bash
-ln -s <dotfiles>/.gitconfig ~/.gitconfig
-ln -s <dotfiles>/.gitconfig-personal ~/.gitconfig-personal
-ln -s <dotfiles>/.gitconfig-work ~/.gitconfig-work
-ln -s <dotfiles>/.gitignore_global ~/.gitignore_global
+ln -s ~/Documents/dotfiles/.gitconfig ~/.gitconfig
+ln -s ~/Documents/dotfiles/.gitconfig-personal ~/.gitconfig-personal
+ln -s ~/Documents/dotfiles/.gitconfig-work ~/.gitconfig-work
+ln -s ~/Documents/dotfiles/.gitignore_global ~/.gitignore_global
 ```
 
 ### Terminal
@@ -28,12 +33,12 @@ ln -s <dotfiles>/.gitignore_global ~/.gitignore_global
 3. Menu: Terminal > Preferences (`Command` + `,`)
 4. Tab: Profiles
 5. Click `⚙` > Import
-6. Select `<dotfiles>/dario.mac.terminal` > Open
+6. Select `~/Documents/dotfiles/dario.mac.terminal` > Open
 
 ### Bash
 
 ```bash
-ln -s <dotfiles>/.bash_profile ~/.bash_profile
+ln -s ~/Documents/dotfiles/.bash_profile ~/.bash_profile
 source ~/.bash_profile
 ```
 
@@ -44,13 +49,13 @@ source ~/.bash_profile
 ##### Bash Completion
 
 ```bash
-<dotfiles>/shell_scripts/bin/bash-completion-install
+~/Documents/dotfiles/shell_scripts/bin/bash-completion-install
 ```
 
 #### ZSH
 
 ```bash
-ln -s <dotfiles>/.zshrc ~/.zshrc
+ln -s ~/Documents/dotfiles/.zshrc ~/.zshrc
 source ~/.zshrc
 
 # Oh My Zsh
@@ -59,7 +64,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 # powerlevel10k Theme
 git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
-ln -s <dotfiles>/.pk10.zsh ~/.pk10.zsh
+ln -s ~/Documents/dotfiles/.p10k.zsh ~/.p10k.zsh
 ```
 
 ### Visual Studio Code
@@ -72,7 +77,7 @@ Install the extension and follow the instruction. Token to read/write gists is r
 ### Vim
 
 ```bash
-ln -s <dotfiles>/.vimrc ~/.vimrc
+ln -s ~/Documents/dotfiles/.vimrc ~/.vimrc
 source ~/.vimrc
 ```
 
@@ -83,7 +88,7 @@ Code Style Rules.
 Code formatting with [prettier](https://prettier.io/) and VSCode prettier extension.
 
 ```bash
-cp <dotfiles>/.prettierrc <your_project_root_folder>
+cp ~/Documents/dotfiles/.prettierrc <your_project_root_folder>
 ```
 
 ### Apache Webserver

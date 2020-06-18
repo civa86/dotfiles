@@ -1,4 +1,4 @@
-export DOTFILES=$HOME/Workspace/civa86/dotfiles
+export DOTFILES=$HOME/Documents/dotfiles
 
 source $DOTFILES/utils/env.sh
 source $DOTFILES/utils/aliases.sh

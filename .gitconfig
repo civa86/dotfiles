@@ -32,6 +32,8 @@
     path = .gitconfig-work
 [includeIf "gitdir:~/Workspace/civa86/"]
     path = .gitconfig-personal
+[includeIf "gitdir:~/Documents/"]
+    path = .gitconfig-personal
 
 [merge]
     tool = vscode

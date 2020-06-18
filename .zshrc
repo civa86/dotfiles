@@ -5,7 +5,7 @@
 #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
 
-export DOTFILES=$HOME/Workspace/civa86/dotfiles
+export DOTFILES=$HOME/Documents/dotfiles
 
 source $DOTFILES/utils/env.sh
 source $DOTFILES/utils/path.sh
@@ -37,3 +37,4 @@ source $DOTFILES/utils/aliases.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 PROMPT_EOL_MARK=''
+POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
