@@ -19,6 +19,12 @@ cd ~/Documents
 
 ## Manual Configuration
 
+### Fonts
+
+```bash
+cp ~/Documents/dotfiles/font/* ~/Library/Fonts/
+```
+
 ### Git
 
 ```bash
@@ -30,7 +36,7 @@ ln -s ~/Documents/dotfiles/.gitignore_global ~/.gitignore_global
 
 ### Terminal
 
-1. Install MesloLGS NF font family
+1. Be sure MesloLGS NF font is correctly installed
 2. Open `Terminal.app`
 3. Menu: Terminal > Preferences (`Command` + `,`)
 4. Tab: Profiles
