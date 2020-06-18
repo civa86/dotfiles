@@ -2,9 +2,7 @@
 
 Local Webserver for HTTP and PHP
 
-```bash
-http://localhost
-```
+[http://localhost](http://localhost)
 
 ##### /etc/apache2/httpd.conf
 
