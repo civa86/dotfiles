@@ -1,4 +1,4 @@
-# Bash Scripts
+# Shell Scripts
 
 Set of useful bash utilities.
 

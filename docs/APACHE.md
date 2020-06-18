@@ -1,4 +1,10 @@
-# Apache Webserver
+# Apache
+
+Local Webserver for HTTP and PHP
+
+```bash
+http://localhost
+```
 
 ##### /etc/apache2/httpd.conf
 
