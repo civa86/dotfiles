@@ -101,5 +101,10 @@ case "$SETUP_BASH" in
     *) echo $RED"Skipping BASH setup"$COLOR_RESET;;
 esac
 
+echo $CYAN"[ VIM ]"$COLOR_RESET
+echo $GREEN"Configuring VIM"$COLOR_RESET
+rm -rf ~/.vimrc
+ln -s $DOTFILES_PATH/.vimrc ~/.vimrc
+
 echo $CYAN"[ FINISH ]"$COLOR_RESET
 echo "Reboot your Shell to apply changes!"
