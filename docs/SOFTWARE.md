@@ -36,11 +36,10 @@ brew install <package_name>
 npm install -g <package_name>
 ```
 
-| PACKAGES                                                             | DESCRIPTION                             |
-| -------------------------------------------------------------------- | --------------------------------------- |
-| [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) | Check dependencies version of a project |
-| [firebase-tools](https://firebase.google.com/docs/cli/)              | CLI to manage firebase projects         |
-
-| [aks](https://developer.amazon.com/it-IT/docs/alexa/smapi/quick-start-alexa-skills-kit-command-line-interface.html) (Alexa Skill Kit)
-| [create-react-app](https://facebook.github.io/create-react-app/) | CLI to manage React scaffolding |
-| [@vue/cli](https://cli.vuejs.org/guide/creating-a-project.html) | CLI to manage VueJS scaffolding |
+| PACKAGES                                                                                                            | DESCRIPTION                             |
+| ------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| [npm-check-updates](https://www.npmjs.com/package/npm-check-updates)                                                | Check dependencies version of a project |
+| [firebase-tools](https://firebase.google.com/docs/cli/)                                                             | CLI to manage firebase projects         |
+| [aks](https://developer.amazon.com/it-IT/docs/alexa/smapi/quick-start-alexa-skills-kit-command-line-interface.html) | Alexa Skill Kit                         |
+| [create-react-app](https://facebook.github.io/create-react-app/)                                                    | CLI to manage React scaffolding         |
+| [@vue/cli](https://cli.vuejs.org/guide/creating-a-project.html)                                                     | CLI to manage VueJS scaffolding         |
