@@ -36,11 +36,11 @@ ln -s ~/Documents/dotfiles/.gitignore_global ~/.gitignore_global
 
 ### Terminal
 
-1. Be sure MesloLGS NF font is correctly installed
+1. Be sure `MesloLGS NF` font family is correctly installed
 2. Open `Terminal.app`
 3. Menu: Terminal > Preferences (`Command` + `,`)
 4. Tab: Profiles
-5. Click `⚙` > Import
+5. Click on the Cog and then Import
 6. Select `~/Documents/dotfiles/dario.mac.terminal` > Open
 
 ### ZSH
