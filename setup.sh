@@ -127,6 +127,33 @@ case "$SETUP_VIM" in
 esac
 
 echo ""
+echo $CYAN"[ APACHE ]"$COLOR_RESET
+read -p "Configure Apache Webserver? [Y/n] " SETUP_APACHE
+SETUP_APACHE=${SETUP_APACHE:-Y}
+case "$SETUP_APACHE" in
+    [yY])
+        mkdir -p ~/Workspace/vhosts
+        cp $DOTFILES_PATH/vhosts/000-default.conf ~/Workspace/vhosts/000-default.conf
+        sed -i '' "s/HOME/$(echo $HOME | sed 's_/_\\/_g')/g" ~/Workspace/vhosts/000-default.conf
+        echo $YELLOW"\t[WARN] Super User required!"$COLOR_RESET
+        sudo cp $DOTFILES_PATH/httpd.conf /etc/apache2/httpd.conf
+        sudo sed -i '' "s/HOME/$(echo $HOME | sed 's_/_\\/_g')/g" /etc/apache2/httpd.conf
+        apachectl configtest
+        if [ $? -eq 0 ]
+        then
+            sudo apachectl restart
+            echo $GREEN"\t[OK] APACHE configuration applied correctly."$COLOR_RESET
+        else
+            echo $RED"\t[ERROR] APACHE configuration seems wrong, check it and re-run."$COLOR_RESET
+        fi
+        ;;
+    *) echo $YELLOW"[SKIP] APACHE configuration"$COLOR_RESET;;
+esac
+
+echo ""
 echo $CYAN"[ FINISH ]"$COLOR_RESET
 echo "Reboot your Shell to apply changes!"
 echo ""
+
+
+
