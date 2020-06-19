@@ -7,14 +7,15 @@ Local Webserver for HTTP and PHP
 ##### /etc/apache2/httpd.conf
 
 ```bash
-### Uncomment PHP LoadModule
+### Uncomment modules loading
+LoadModule proxy_module libexec/apache2/mod_proxy.so
 LoadModule proxy_http_module libexec/apache2/mod_proxy_http.so
 LoadModule rewrite_module libexec/apache2/mod_rewrite.so
 LoadModule php7_module libexec/apache2/libphp7.so
 
 ### Setup DocumentRoot
-DocumentRoot "/your/document/root/path"
-<Directory "/your/document/root/path">
+DocumentRoot "~/Workspace"
+<Directory "~/Workspace">
     Options Indexes FollowSymLinks Multiviews
     MultiviewsMatch Any
     AllowOverride All
@@ -29,7 +30,7 @@ Include <vhost_path>/vhosts/*.conf
 
 ```bash
 <VirtualHost *:80>
-	DocumentRoot "/your/document/root/path" # Default has the same DocumentRoot of httpd.conf
+	DocumentRoot "~/Workspace" # Default has the same DocumentRoot of httpd.conf
 </VirtualHost>
 ```
 
@@ -58,4 +59,5 @@ sudo apachectl start    # Start webserver
 sudo apachectl stop     # Stop webserver
 sudo apachectl restart  # Restart webserver
 sudo apachectl reload   # Reload Configuration
+apachectl configtest    # Test Configuration
 ```
