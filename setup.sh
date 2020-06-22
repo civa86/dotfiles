@@ -132,6 +132,7 @@ read -p "Configure Apache Webserver? [Y/n] " SETUP_APACHE
 SETUP_APACHE=${SETUP_APACHE:-Y}
 case "$SETUP_APACHE" in
     [yY])
+        mkdir -p ~/Workspace
         mkdir -p ~/Workspace/vhosts
         cp $DOTFILES_PATH/vhosts/000-default.conf ~/Workspace/vhosts/000-default.conf
         sed -i '' "s/HOME/$(echo $HOME | sed 's_/_\\/_g')/g" ~/Workspace/vhosts/000-default.conf
