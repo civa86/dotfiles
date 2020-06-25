@@ -151,7 +151,7 @@ esac
 
 echo ""
 echo $CYAN"[ FINISH ]"$COLOR_RESET
-echo $YELLOW"\tReboot your Shell to apply changes!"$COLOR_RESET;;
+echo $YELLOW"\tReboot your Shell to apply changes!"$COLOR_RESET
 echo ""
 
 
