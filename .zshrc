@@ -13,6 +13,7 @@ source $DOTFILES/utils/zsh-env.sh
 
 plugins=(
   zsh-syntax-highlighting
+  zsh-better-npm-completion
   colored-man-pages
   aws
   git
@@ -21,7 +22,6 @@ plugins=(
   docker-compose
   kubectl
   nvm
-  npm
   yarn
   terraform
 )

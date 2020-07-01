@@ -80,6 +80,14 @@ case "$SETUP_ZSH" in
             echo $YELLOW"\t[SKIP] Syntax Highlighting Plugin already installed!"$COLOR_RESET
         fi
 
+        if [ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-better-npm-completion ]
+        then
+            git clone https://github.com/lukechilds/zsh-better-npm-completion ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-better-npm-completion
+            echo $GREEN"\t[OK] Better NPM Completion Plugin installed correctly."$COLOR_RESET
+        else
+            echo $YELLOW"\t[SKIP] Better NPM Completion Plugin already installed!"$COLOR_RESET
+        fi
+
         if [ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k ]
         then
             git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
