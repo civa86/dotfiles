@@ -88,6 +88,14 @@ case "$SETUP_ZSH" in
             echo $YELLOW"\t[SKIP] Better NPM Completion Plugin already installed!"$COLOR_RESET
         fi
 
+        if [ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/git-flow-completion ]
+        then
+            git clone https://github.com/bobthecow/git-flow-completion ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/git-flow-completion
+            echo $GREEN"\t[OK] Git Flow Completion Plugin installed correctly."$COLOR_RESET
+        else
+            echo $YELLOW"\t[SKIP] Git Flow Completion Plugin already installed!"$COLOR_RESET
+        fi
+
         if [ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k ]
         then
             git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
