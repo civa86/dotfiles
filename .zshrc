@@ -35,3 +35,13 @@ source $DOTFILES/utils/aliases.sh
 
 PROMPT_EOL_MARK=''
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+
+# twilio autocomplete setup
+if [ -x "$(command -v twilio)" ]; then
+  TWILIO_AC_ZSH_SETUP_PATH=$HOME/.twilio-cli/autocomplete/zsh_setup && test -f $TWILIO_AC_ZSH_SETUP_PATH && source $TWILIO_AC_ZSH_SETUP_PATH;
+fi
+
+# groovy home setup
+if [ -x "$(command -v groovy)" ]; then
+  export GROOVY_HOME=/usr/local/opt/groovy/libexec
+fi
