@@ -45,11 +45,36 @@ source "`dirname $0`"/../utils.sh
 # VARIABLES
 
 PACKAGE_FILE="$PWD/package.json"
-RELEASE_NUM=$1
+
 
 # EXECUTION
 
 set -e
+
+## Arguments and Flags
+
+RELEASE_NUM=""
+FINISH_RELEASE=0
+
+while (( "$#" )); do
+  case "$1" in
+    -f|-F)
+      FINISH_RELEASE=1
+      shift
+      ;;
+    -*|--*=) # unsupported flags
+      print_error "Unsupported flag $1"
+      exit 1
+      ;;
+    *) # preserve positional arguments
+      RELEASE_NUM="$RELEASE_NUM $1"
+      shift
+      ;;
+  esac
+done
+eval set -- "$RELEASE_NUM"
+
+RELEASE_NUM=${RELEASE_NUM//[[:blank:]]/}
 
 ## validation
 
@@ -83,7 +108,7 @@ read -p "Do you want to proceed? (y/N) " CONFIRM_RELEASE
 
 if [ "$CONFIRM_RELEASE" == "y" ]
 then
-    git flow release start v$RELEASE_NUM
+    git flow release start "v$RELEASE_NUM"
 
     npm --no-git-tag-version version $RELEASE_NUM
 
@@ -93,12 +118,26 @@ then
 
     echo -e "\n\t"$GREEN"Release"$COLOR_RESET" $RELEASE_NUM "$GREEN"started!"$COLOR_RESET
 
-    echo -e $CYAN"TODO"$COLOR_RESET
-    echo -e "\tDon't foreget to push $(parse_git_branch)"
-    echo -e $GREEN"Hint"$COLOR_RESET
-    echo -e "\tRun command: git push --set-upstream origin $(parse_git_branch)"
-    echo -e "\n"
-    exit 0
+    if [ $FINISH_RELEASE -eq 0 ]
+    then
+        echo -e $CYAN"TODO"$COLOR_RESET
+        echo -e "\tDon't foreget to push $(parse_git_branch)"
+        echo -e $GREEN"Hint"$COLOR_RESET
+        echo -e "\tRun command: git push --set-upstream origin $(parse_git_branch)"
+        echo -e "\n"
+        exit 0
+    else
+        echo -e $CYAN"CLOSE RELEASE"$COLOR_RESET
+        git flow release finish -m "v$RELEASE_NUM" "v$RELEASE_NUM"
+
+        REMOTE=`git_has_remote`
+        if [ $REMOTE -eq 1 ]
+        then
+            git push --all
+            git push --tags
+        fi
+        exit 0
+    fi
 
 else
     echo -e "\n\t"$RED"Bye Bye"$COLOR_RESET"\n"

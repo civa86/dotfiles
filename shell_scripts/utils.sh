@@ -126,3 +126,13 @@ function is_new_release () {
         print_error "version $YELLOW$1$COLOR_RESET must be grater than current $CYAN$2$COLOR_RESET"
     fi
 }
+
+function git_has_remote () {
+    local REMOTE=`git remote show`
+
+    if [ -z "$REMOTE" ]; then
+        echo 0
+    else
+        echo 1
+    fi
+}
