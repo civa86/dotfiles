@@ -14,10 +14,13 @@ source $DOTFILES/utils/zsh-env.sh
 plugins=(
   zsh-syntax-highlighting
   zsh-better-npm-completion
+  yarn
   colored-man-pages
+  cp
   aws
   docker
   docker-compose
+  docker-machine
   nvm
   terraform
   git-flow-completion
