@@ -2,6 +2,7 @@
 
 | SOFTWARE                                                                          | DESCRIPTION             |
 | --------------------------------------------------------------------------------- | ----------------------- |
+| [iTerm2](https://iterm2.com/)                                                     | MacOSX Terminal         |
 | [Homebrew](https://brew.sh)                                                       | MacOSX Package Manager  |
 | [Git](https://git-scm.com/)                                                       | Software Versioning     |
 | [VSCode](https://code.visualstudio.com/)                                          | Code Editor             |
@@ -29,6 +30,7 @@ brew install <package_name>
 | [yarn](https://yarnpkg.com/lang/en/)                                                    | NPM Package manager alternative |
 | [ruby](https://www.ruby-lang.org/en/)                                                   | Ruby Environment                |
 | [python](https://www.python.org/)                                                       | Python 3                        |
+| [packer](https://www.packer.io/)                                                        | Packer                          |
 
 ## NPM Global Packages
 

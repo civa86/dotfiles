@@ -18,3 +18,7 @@ set foldmethod=marker       " sets the fold method to {{{ }}} markers
 set shortmess=atI           " disable welcome screen
 set listchars=tab:\|\ ,trail:·,eol:¬
 set nospell                 " disable
+
+set t_Co=256
+set t_ut=
+colorscheme codedark
