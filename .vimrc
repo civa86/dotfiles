@@ -28,8 +28,12 @@ call plug#begin()
   Plug 'itchyny/lightline.vim'
 call plug#end()
 
-colorscheme one
-set background=dark
+try
+    colorscheme one
+    set background=dark
+catch /^Vim\%((\a\+)\)\=:E185/
+    " deal with it
+endtry
 
 set laststatus=2
 
