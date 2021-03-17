@@ -26,6 +26,7 @@ call plug#begin()
   Plug 'rakr/vim-one'
   Plug 'preservim/nerdtree'
   Plug 'itchyny/lightline.vim'
+  Plug 'itchyny/vim-gitbranch'
 call plug#end()
 
 try
@@ -38,5 +39,12 @@ endtry
 set laststatus=2
 
 let g:lightline = {
-      \ 'colorscheme': 'one dark'
+     \ 'colorscheme': 'one dark',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
       \ }
