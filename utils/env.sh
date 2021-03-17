@@ -11,6 +11,10 @@ export GIT_PS1_SHOWUPSTREAM="git verbose"
 # LANGUAGE
 export LANG="en_US.UTF-8"
 
+# PAGER
+export PAGER=less
+export LESS=FX
+
 # COLORS
 RED="\033[31m"
 GREEN="\033[32m"
