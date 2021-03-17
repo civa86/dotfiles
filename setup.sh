@@ -134,8 +134,7 @@ read -p "Configure VIM with .vimrc file? [Y/n] " SETUP_VIM
 SETUP_VIM=${SETUP_VIM:-Y}
 case "$SETUP_VIM" in
     [yY])
-        mkdir -p ~/.vim
-        git clone https://github.com/tomasiser/vim-code-dark.git ~/.vim
+        curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
         rm -rf ~/.vimrc
         ln -s $DOTFILES_PATH/.vimrc ~/.vimrc
         echo $GREEN"\t[OK] VIM configuration applied correctly."$COLOR_RESET

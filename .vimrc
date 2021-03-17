@@ -21,4 +21,18 @@ set nospell                 " disable
 
 set t_Co=256
 set t_ut=
-colorscheme codedark
+
+call plug#begin()
+  Plug 'rakr/vim-one'
+  Plug 'preservim/nerdtree'
+  Plug 'itchyny/lightline.vim'
+call plug#end()
+
+colorscheme one
+set background=dark
+
+set laststatus=2
+
+let g:lightline = {
+      \ 'colorscheme': 'one dark'
+      \ }
