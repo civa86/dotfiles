@@ -12,7 +12,7 @@ export GIT_PS1_SHOWUPSTREAM="git verbose"
 export LANG="en_US.UTF-8"
 
 # PAGER
-export PAGER=less
+export PAGER=cat
 export LESS=FX
 
 # COLORS
