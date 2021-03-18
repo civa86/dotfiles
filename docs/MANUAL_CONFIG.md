@@ -43,7 +43,7 @@ source ~/.bash_profile
 ##### Bash Completion Scripts
 
 ```bash
-~/Documents/dotfiles/shell_scripts/bin/bash-completion-install
+~/Documents/dotfiles/scripts/bin/bash-completion-install
 ```
 
 ## Vim

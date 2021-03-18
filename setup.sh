@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-source "`dirname $0`"/shell_scripts/utils.sh
+source "`dirname $0`"/scripts/utils.sh
 
 DOTFILES_PATH=~/Documents/dotfiles
 
@@ -122,7 +122,7 @@ case "$SETUP_BASH" in
     [yY])
         rm -rf ~/.bash_profile
         ln -s $DOTFILES_PATH/.bash_profile ~/.bash_profile
-        $DOTFILES_PATH/shell_scripts/bin/bash-completion-install
+        $DOTFILES_PATH/scripts/bin/bash-completion-install
         echo $GREEN"\t[OK] BASH configuration applied correctly."$COLOR_RESET
         ;;
     *) echo $YELLOW"[SKIP] BASH setup"$COLOR_RESET;;
