@@ -17,21 +17,6 @@
 | [awscli](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html) | AWS CLI                 |
 | [terraform](https://www.terraform.io/downloads.html)                              | Terraform CLI           |
 
-## Brew Packages
-
-```bash
-brew install <package_name>
-```
-
-| PACKAGES                                                                                | DESCRIPTION                     |
-| --------------------------------------------------------------------------------------- | ------------------------------- |
-| [bash-completion](https://github.com/scop/bash-completion)                              | Bash autocomplete helper        |
-| [git-flow](https://it.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) | Git extension                   |
-| [yarn](https://yarnpkg.com/lang/en/)                                                    | NPM Package manager alternative |
-| [ruby](https://www.ruby-lang.org/en/)                                                   | Ruby Environment                |
-| [python](https://www.python.org/)                                                       | Python 3                        |
-| [packer](https://www.packer.io/)                                                        | Packer                          |
-
 ## NPM Global Packages
 
 ```bash

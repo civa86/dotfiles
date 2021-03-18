@@ -13,8 +13,14 @@ Clone the repository inside the `Documents` folder
 ```bash
 cd ~/Documents
 git clone https://github.com/civa86/dotfiles.git
-cd ~/Documents
+cd ~/Documents/dotfiles
 ./setup.sh
+```
+
+#### Brew Setup
+
+```bash
+~/Documents/dotfiles/brew.sh
 ```
 
 ## Terminal App
