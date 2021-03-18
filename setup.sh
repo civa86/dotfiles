@@ -2,6 +2,7 @@
 
 source "`dirname $0`"/scripts/utils.sh
 
+#TODO: change with current script directory??
 DOTFILES_PATH=~/Documents/dotfiles
 
 echo $CYAN"[ WORKSPACE ]"$COLOR_RESET
@@ -147,6 +148,28 @@ case "$SETUP_VIM" in
         echo $GREEN"\t[OK] VIM configuration applied correctly."$COLOR_RESET
         ;;
     *) echo $YELLOW"[SKIP] VIM configuration"$COLOR_RESET;;
+esac
+
+echo ""
+echo $CYAN"[ HOMEBREW ]"$COLOR_RESET
+read -p "Setup Homebrew and Formulas? [Y/n] " SETUP_BREW
+SETUP_BREW=${SETUP_BREW:-Y}
+case "$SETUP_BREW" in
+    [yY])
+        $DOTFILES_PATH/brew.sh
+        ;;
+    *) echo $YELLOW"[SKIP] Homebrew setup"$COLOR_RESET;;
+esac
+
+echo ""
+echo $CYAN"[ NODE JS ]"$COLOR_RESET
+read -p "Setup NodeJS and Global node_modules? [Y/n] " SETUP_NODE
+SETUP_NODE=${SETUP_NODE:-Y}
+case "$SETUP_NODE" in
+    [yY])
+        $DOTFILES_PATH/node.sh
+        ;;
+    *) echo $YELLOW"[SKIP] NodeJS setup"$COLOR_RESET;;
 esac
 
 echo ""

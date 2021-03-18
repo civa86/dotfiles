@@ -4,9 +4,22 @@ One Repo to conf them all, One Repo to find them,
 
 One Repo to bring them all and in the MacBook bind them
 
-## Install
+## Install Softwares
 
-Be sure that system has the recommended [software](./docs/SOFTWARE.md) installed.
+| SOFTWARE                                                                          | DESCRIPTION             |
+| --------------------------------------------------------------------------------- | ----------------------- |
+| [iTerm2](https://iterm2.com/)                                                     | MacOSX Terminal         |
+| [Git](https://git-scm.com/)                                                       | Software Versioning     |
+| [VSCode](https://code.visualstudio.com/)                                          | Code Editor             |
+| [VirtualBox](https://www.virtualbox.org/)                                         | Virtual Machine Manager |
+| [MySQL Workbench](https://dev.mysql.com/downloads/workbench/)                     | MySQL Client            |
+| [Robo 3T](https://robomongo.org/)                                                 | MondoDB Client          |
+| [Postman](https://www.getpostman.com/)                                            | REST API Client         |
+| [Sourcetree](https://www.sourcetreeapp.com/)                                      | Git Client              |
+| [Docker](https://www.docker.com/products/docker-desktop)                          | Container Manager       |
+| [awscli](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html) | AWS CLI                 |
+
+## Setup dotfiles
 
 Clone the repository inside the `Documents` folder
 
@@ -23,6 +36,12 @@ cd ~/Documents/dotfiles
 ~/Documents/dotfiles/brew.sh
 ```
 
+#### NodeJS Setup
+
+```bash
+~/Documents/dotfiles/node.sh
+```
+
 ## Terminal App
 
 1. Be sure `MesloLGS NF` font family is correctly installed
@@ -30,7 +49,16 @@ cd ~/Documents/dotfiles
 3. Menu: Terminal > Preferences (`Command` + `,`)
 4. Tab: Profiles
 5. Click on the Cog and then Import
-6. Select `~/Documents/dotfiles/dario.mac.terminal` > Open
+6. Select `~/Documents/dotfiles/terminal/dario.mac.terminal` > Open
+
+## iTerm2
+
+1. Be sure `MesloLGS NF` font family is correctly installed
+2. Open `iTerm.app`
+3. Menu: iTerm2 > Preferences (`Command` + `,`)
+4. Tab: Profiles
+5. Button Other Actions > Import JSON Profiles...
+6. Select `~/Documents/dotfiles/terminal/dario.iterm2.json` > Open
 
 ## Visual Studio Code
 
@@ -39,10 +67,11 @@ with [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.co
 
 Install the extension and follow the instruction. Token to read/write gists is required.
 
-## Manual Configuration
-
-Configure things [manually](./docs/MANUAL_CONFIG.md).
-
 ## Available Shell Scrips
 
-Read about available [Shell Scripts](./docs/SHELL_SCRIPTS.md) shipped with this repository.
+| COMMAND                 | DESCRIPTION                                             |
+| ----------------------- | ------------------------------------------------------- |
+| bash-completion-install | Install all the bash-completion scripts                 |
+| prettier-rules-install  | Copy prettier code style rules in the current directory |
+| extract-package-version | Print the version of the current directory package.json |
+| release                 | Create a release of the current directory node project  |

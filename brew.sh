@@ -1,9 +1,13 @@
+#!/usr/bin/env sh
+
 source "`dirname $0`"/scripts/utils.sh
 
 if ! command -v brew &> /dev/null
 then
-    echo $CYAN"[HOMEBREW] Install"$COLOR_RESET
+    echo $CYAN"[Homebrew] Install"$COLOR_RESET
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+    echo $YELLOW"[SKIP] Homebrew already installed!"$COLOR_RESET
 fi
 
 # Make sure we’re using the latest Homebrew.
