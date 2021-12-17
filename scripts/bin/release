@@ -15,7 +15,7 @@ function banner() {
 
 function help() {
     echo -e $GREEN"Usage"$COLOR_RESET
-    echo -e "\t`basename $0` <version-number>"
+    echo -e "\t$(basename $0) <version-number>"
     echo -e "\n"
     echo -e $GREEN"Example"$COLOR_RESET
     echo -e "\trelease 1.0.0"
@@ -36,16 +36,9 @@ function check_args() {
     fi
 }
 
-
-
 # IMPORT UTILS
 
-source "`dirname $0`"/../utils.sh
-
-# VARIABLES
-
-PACKAGE_FILE="$PWD/package.json"
-
+source "$(dirname $0)"/../utils.sh
 
 # EXECUTION
 
@@ -56,21 +49,21 @@ set -e
 RELEASE_NUM=""
 FINISH_RELEASE=0
 
-while (( "$#" )); do
-  case "$1" in
-    -f|-F)
-      FINISH_RELEASE=1
-      shift
-      ;;
-    -*|--*=) # unsupported flags
-      print_error "Unsupported flag $1"
-      exit 1
-      ;;
+while (("$#")); do
+    case "$1" in
+    -f | -F)
+        FINISH_RELEASE=1
+        shift
+        ;;
+    -* | --*=) # unsupported flags
+        print_error "Unsupported flag $1"
+        exit 1
+        ;;
     *) # preserve positional arguments
-      RELEASE_NUM="$RELEASE_NUM $1"
-      shift
-      ;;
-  esac
+        RELEASE_NUM="$RELEASE_NUM $1"
+        shift
+        ;;
+    esac
 done
 eval set -- "$RELEASE_NUM"
 
@@ -79,10 +72,6 @@ RELEASE_NUM=${RELEASE_NUM//[[:blank:]]/}
 ## validation
 
 check_args $RELEASE_NUM
-
-is_software_installed "npm" "Please visit: https://nodejs.org"
-
-is_file_present $PACKAGE_FILE "Run command: npm init"
 
 is_software_installed "git" "Please visit: https://git-scm.com/"
 
@@ -94,11 +83,17 @@ is_git_status_clean
 
 is_valid_sem_version $RELEASE_NUM
 
-is_new_release $RELEASE_NUM "`current_version`"
+PACKAGE_TYPE=$(get_package_type)
+if [ -z $PACKAGE_TYPE ]; then print_error "Invalid Package" "Release can work only with npm or poetry packages"; fi
 
-## release
+echo -e "$CYAN[$PACKAGE_TYPE]$COLOR_RESET Package"
 
-CURRENT_VERSION="`current_version`"
+CURRENT_VERSION="$(current_version $PACKAGE_TYPE)"
+if [ -z $CURRENT_VERSION ]; then print_error "Invalid Package" "Release can work only with npm or poetry packages"; fi
+
+is_new_release $RELEASE_NUM $CURRENT_VERSION
+
+# release
 
 banner
 
@@ -106,11 +101,10 @@ echo -e "\t"$YELLOW$CURRENT_VERSION$COLOR_RESET " -> " $CYAN$RELEASE_NUM$COLOR_R
 
 read -p "Do you want to proceed? (y/N) " CONFIRM_RELEASE
 
-if [ "$CONFIRM_RELEASE" == "y" ]
-then
+if [ "$CONFIRM_RELEASE" == "y" ]; then
     git flow release start "v$RELEASE_NUM"
 
-    npm --no-git-tag-version version $RELEASE_NUM
+    update_version $RELEASE_NUM $PACKAGE_TYPE
 
     git add .
 
@@ -118,8 +112,7 @@ then
 
     echo -e "\n\t"$GREEN"Release"$COLOR_RESET" $RELEASE_NUM "$GREEN"started!"$COLOR_RESET
 
-    if [ $FINISH_RELEASE -eq 0 ]
-    then
+    if [ $FINISH_RELEASE -eq 0 ]; then
         echo -e $CYAN"TODO"$COLOR_RESET
         echo -e "\tDon't foreget to push $(parse_git_branch)"
         echo -e $GREEN"Hint"$COLOR_RESET
@@ -130,9 +123,8 @@ then
         echo -e $CYAN"CLOSE RELEASE"$COLOR_RESET
         git flow release finish -m "v$RELEASE_NUM" "v$RELEASE_NUM"
 
-        REMOTE=`git_has_remote`
-        if [ $REMOTE -eq 1 ]
-        then
+        REMOTE=$(git_has_remote)
+        if [ $REMOTE -eq 1 ]; then
             git push --all
             git push --tags
         fi
