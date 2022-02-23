@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
-SCRIPTPATH="$(
-  cd -- "$(dirname "$0")" >/dev/null 2>&1
-  pwd -P
-)"
+if [ -z "$DOTFILES" ]; then echo "dotfiles not found!" && exit 1; fi
+if [ ! -d "$DOTFILES/scripts/utils" ]; then echo "dotfiles utils folder not found!" && exit 1; fi
 
-for SCRIPT in $SCRIPTPATH/../utils/*.sh; do
+for SCRIPT in $DOTFILES/scripts/utils/*.sh; do
   source $SCRIPT
 done
