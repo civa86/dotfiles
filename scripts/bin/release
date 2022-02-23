@@ -14,10 +14,10 @@ function banner() {
 }
 
 function help() {
-    echo -e $GREEN"Usage"$COLOR_RESET
+    print_green "Usage"
     echo -e "\t$(basename $0) <version-number>"
     echo -e "\n"
-    echo -e $GREEN"Example"$COLOR_RESET
+    print_green "Example"
     echo -e "\trelease 1.0.0"
     echo -e "\n"
 }
