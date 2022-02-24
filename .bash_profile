@@ -6,7 +6,7 @@ source $DOTFILES/utils/path.sh
 
 # BASH COMPLETITION
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
-. $(brew --prefix)/etc/bash_completion
+  . $(brew --prefix)/etc/bash_completion
 fi
 
 # NVM
@@ -22,4 +22,4 @@ if [ -x "$(command -v aws)" ] && [ -x "$(command -v aws_completer)" ]; then
 fi
 
 # RUBY rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if which rbenv >/dev/null; then eval "$(rbenv init -)"; fi

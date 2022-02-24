@@ -95,11 +95,15 @@ function select_box() {
       '[A')
         if [ $CHOICE -gt 0 ]; then
           CHOICE=$(echo $CHOICE - 1 | bc -l)
+        else
+          CHOICE=$LAST_INDEX
         fi
         ;;
       '[B')
         if [ $CHOICE -lt $LAST_INDEX ]; then
           CHOICE=$(echo $CHOICE + 1 | bc -l)
+        else
+          CHOICE=0
         fi
         ;;
       esac
