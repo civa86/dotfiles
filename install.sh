@@ -51,6 +51,9 @@ function run_service_install() {
   print_recap
 
   $CMD
+
+  if [ "$SERVICE" == "node"]; then nvm use default; fi
+
   echo -e "\npress key to continue..."
   read -d'' -s -n1
   INSTALL_IN_PROGRESS=
