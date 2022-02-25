@@ -2,11 +2,47 @@
 
 # COLORS
 
+BLACK="\033[0;30m"
 RED="\033[0;31m"
-YELLOW="\033[1;33m"
 GREEN="\033[0;32m"
+YELLOW="\033[0;33m"
+BLUE="\033[0;34m"
+MAGENTA="\033[0;35m"
 CYAN="\033[0;36m"
+WHITE="\033[0;37m"
 COLOR_RESET="\033[0m"
+
+function print_black() {
+  echo -e $BLACK"$1"$COLOR_RESET
+}
+
+function print_red() {
+  echo -e $RED"$1"$COLOR_RESET
+}
+
+function print_green() {
+  echo -e $GREEN"$1"$COLOR_RESET
+}
+
+function print_yellow() {
+  echo -e $YELLOW"$1"$COLOR_RESET
+}
+
+function print_blue() {
+  echo -e $BLUE"$1"$COLOR_RESET
+}
+
+function print_magenta() {
+  echo -e $MAGENTA"$1"$COLOR_RESET
+}
+
+function print_cyan() {
+  echo -e $CYAN"$1"$COLOR_RESET
+}
+
+function print_white() {
+  echo -e $WHITE"$1"$COLOR_RESET
+}
 
 function print_sequence() {
   local CHAR=$1
@@ -19,22 +55,6 @@ function print_sequence() {
 
 function separator() {
   print_sequence "-"
-}
-
-function print_green() {
-  echo -e $GREEN"$1"$COLOR_RESET
-}
-
-function print_yellow() {
-  echo -e $YELLOW"$1"$COLOR_RESET
-}
-
-function print_red() {
-  echo -e $RED"$1"$COLOR_RESET
-}
-
-function print_cyan() {
-  echo -e $CYAN"$1"$COLOR_RESET
 }
 
 function print_error() {
@@ -69,6 +89,12 @@ function show_input_characters() {
   stty echo
 }
 
+function ctrl_c() {
+  show_cursor
+  show_input_characters
+  exit 0
+}
+
 # select_box
 # params:
 #   1 - string: list of choices space separated ("opt_1 opt_2 opt_3")
@@ -83,7 +109,9 @@ function select_box() {
 
   SELECT_BOX_CHOICE=
 
+  hide_input_characters
   hide_cursor
+
   while [ $LOOP -eq 1 ]; do
     # tput clear
 
@@ -124,6 +152,8 @@ function select_box() {
 
   done
 
+  show_input_characters
   show_cursor
+
   SELECT_BOX_CHOICE=${LIST[$CHOICE]}
 }
