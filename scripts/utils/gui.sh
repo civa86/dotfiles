@@ -61,6 +61,14 @@ function show_cursor() {
   echo -en "\033[?25h"
 }
 
+function hide_input_characters() {
+  stty -echo
+}
+
+function show_input_characters() {
+  stty echo
+}
+
 # select_box
 # params:
 #   1 - string: list of choices space separated ("opt_1 opt_2 opt_3")

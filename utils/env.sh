@@ -15,6 +15,7 @@ export LANG="en_US.UTF-8"
 export PAGER=cat
 export LESS=FX
 
+# TODO: why??
 # COLORS
 RED="\033[31m"
 GREEN="\033[32m"
