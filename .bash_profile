@@ -4,7 +4,7 @@ source $DOTFILES/utils/env.sh
 source $DOTFILES/utils/aliases.sh
 source $DOTFILES/utils/path.sh
 
-# BASH COMPLETITION
+# BASH COMPLETION
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi

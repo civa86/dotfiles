@@ -51,7 +51,7 @@ read -p "Install additional fonts? [Y/n] " SETUP_FONTS
 SETUP_FONTS=${SETUP_FONTS:-Y}
 case "$SETUP_FONTS" in
 [yY])
-  cp $DOTFILES_PATH/font/* ~/Library/Fonts/
+  cp $DOTFILES_PATH/fonts/* ~/Library/Fonts/
   echo $GREEN"\t[OK] fonts installed correctly."$COLOR_RESET
   ;;
 *) echo $YELLOW"[SKIP] Fonts"$COLOR_RESET ;;
@@ -171,11 +171,11 @@ read -p "Configure Apache Webserver? [Y/n] " SETUP_APACHE
 SETUP_APACHE=${SETUP_APACHE:-Y}
 case "$SETUP_APACHE" in
 [yY])
-  mkdir -p ~/Workspace/vhosts
-  cp $DOTFILES_PATH/vhosts/000-default.conf ~/Workspace/vhosts/000-default.conf
-  sed -i '' "s/HOME/$(echo $HOME | sed 's_/_\\/_g')/g" ~/Workspace/vhosts/000-default.conf
+  mkdir -p ~/vhosts
+  cp $DOTFILES_PATH/apache/000-default.conf ~/vhosts/000-default.conf
+  sed -i '' "s/HOME/$(echo $HOME | sed 's_/_\\/_g')/g" ~/vhosts/000-default.conf
   echo $YELLOW"\t[WARN] Super User required!"$COLOR_RESET
-  sudo cp $DOTFILES_PATH/httpd.conf /etc/apache2/httpd.conf
+  sudo cp $DOTFILES_PATH/apache/httpd.conf /etc/apache2/httpd.conf
   sudo sed -i '' "s/HOME/$(echo $HOME | sed 's_/_\\/_g')/g" /etc/apache2/httpd.conf
   apachectl configtest
   if [ $? -eq 0 ]; then
