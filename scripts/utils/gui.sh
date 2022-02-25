@@ -70,7 +70,7 @@ function print_error() {
 
 function delete_upper_line() {
   echo -ne "\033[F"
-  echo -ne "\033[k"
+  echo -ne "\033[2K"
 }
 
 function hide_cursor() {

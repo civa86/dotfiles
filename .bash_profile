@@ -1,8 +1,8 @@
 export DOTFILES=$HOME/Documents/dotfiles
 
-source $DOTFILES/utils/env.sh
-source $DOTFILES/utils/aliases.sh
-source $DOTFILES/utils/path.sh
+source $DOTFILES/env/env.sh
+source $DOTFILES/env/aliases.sh
+source $DOTFILES/env/path.sh
 
 # BASH COMPLETION
 if [ -f $(brew --prefix)/etc/bash_completion ]; then

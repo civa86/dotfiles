@@ -7,9 +7,9 @@ fi
 
 export DOTFILES=$HOME/Documents/dotfiles
 
-source $DOTFILES/utils/env.sh
-source $DOTFILES/utils/path.sh
-source $DOTFILES/utils/zsh-env.sh
+source $DOTFILES/env/env.sh
+source $DOTFILES/env/path.sh
+source $DOTFILES/env/zsh-env.sh
 
 plugins=(
   zsh-syntax-highlighting
@@ -31,7 +31,7 @@ zstyle ':completion:*:(ssh|scp):*' hosts $hosts
 zstyle ':completion:*:(ssh|scp):*' users $users
 
 source $ZSH/oh-my-zsh.sh
-source $DOTFILES/utils/aliases.sh
+source $DOTFILES/env/aliases.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
