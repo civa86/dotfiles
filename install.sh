@@ -43,10 +43,14 @@ function print_recap() {
 
 }
 
+function get_command_path() {
+  local SERVICE=$1
+  echo $(find $INSTALL_SCRIPTS_PATH -type f -name "*_$SERVICE.sh")
+}
+
 function run_service_install() {
   local SERVICE=$1
-  local CMD="$INSTALL_SCRIPTS_PATH/$SERVICE.sh"
-
+  CMD=$(get_command_path $SERVICE)
   INSTALL_IN_PROGRESS="[ $(print_yellow "$SERVICE") ]"
   print_recap
 
@@ -60,7 +64,9 @@ function run_service_install() {
 }
 
 function get_available_services() {
-  find $INSTALL_SCRIPTS_PATH -name "*.sh" -type f -exec bash -c 'basename $0 | sed "s/\.sh//"' {} \; | sort
+  local ALL_SERVICES=$(find $INSTALL_SCRIPTS_PATH -name "*.sh" -type f -exec bash -c 'basename $0' {} \; | sort)
+  ALL_SERVICES=$(echo $ALL_SERVICES | sed "s/\.sh//g" | sed "s/[0-9][0-9][0-9]_//g")
+  echo $ALL_SERVICES
 }
 
 # CONST
@@ -78,7 +84,7 @@ while [[ $# -gt 0 ]]; do
     exit 0
     ;;
   -s)
-    if [ -f "$INSTALL_SCRIPTS_PATH/$2.sh" ]; then
+    if [ -f "$(get_command_path $2)" ]; then
       if [ -z "$SERVICES" ]; then
         SERVICES="$2"
       else

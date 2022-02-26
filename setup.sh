@@ -154,16 +154,16 @@ esac
 # *) echo $YELLOW"[SKIP] Homebrew setup"$COLOR_RESET ;;
 # esac
 
-echo ""
-echo $CYAN"[ NODE JS ]"$COLOR_RESET
-read -p "Setup NodeJS and Global node_modules? [Y/n] " SETUP_NODE
-SETUP_NODE=${SETUP_NODE:-Y}
-case "$SETUP_NODE" in
-[yY])
-  $DOTFILES_PATH/node.sh
-  ;;
-*) echo $YELLOW"[SKIP] NodeJS setup"$COLOR_RESET ;;
-esac
+# echo ""
+# echo $CYAN"[ NODE JS ]"$COLOR_RESET
+# read -p "Setup NodeJS and Global node_modules? [Y/n] " SETUP_NODE
+# SETUP_NODE=${SETUP_NODE:-Y}
+# case "$SETUP_NODE" in
+# [yY])
+#   $DOTFILES_PATH/node.sh
+#   ;;
+# *) echo $YELLOW"[SKIP] NodeJS setup"$COLOR_RESET ;;
+# esac
 
 echo ""
 echo $CYAN"[ APACHE ]"$COLOR_RESET
