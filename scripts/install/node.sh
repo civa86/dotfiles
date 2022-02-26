@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 SCRIPTPATH="$(
   cd -- "$(dirname "$0")" >/dev/null 2>&1
   pwd -P
@@ -57,11 +55,26 @@ INSTALLED_GLOBAL_DEPS=$(npm list -g --json --depth 0)
 for DEP in $GLOBAL_DEPS; do
   DEP_INSTALLED=$(jq -r ".dependencies.\"$DEP\"" <<<$INSTALLED_GLOBAL_DEPS)
   if [ "$DEP_INSTALLED" == "null" ]; then
-    echo -e "[ $(print_yellow $DEP) ] installing."
-    npm i -g $F &>/dev/null
+    echo -e "[ $(print_yellow $DEP) ] installing..."
+    npm i -g $DEP &>/dev/null
     delete_upper_line
     echo -e "[ $(print_green "OK") ][ $(print_magenta $DEP) ] installed."
   else
     echo -e "[ $(print_blue "SKIP") ][ $(print_magenta $DEP) ] already installed."
   fi
 done
+
+read -p "Upgrade any global dependency? [y/N] " GLOBAL_DEPS_UPGRADE
+GLOBAL_DEPS_UPGRADE=${GLOBAL_DEPS_UPGRADE:-N}
+case "$GLOBAL_DEPS_UPGRADE" in
+[yY])
+  echo -e "[ $(print_yellow "global deps") ] upgrading..."
+  npm update -g &>/dev/null
+  delete_upper_line
+  echo -e "[ $(print_green "OK") ] global dependencies ugraded."
+  ;;
+*)
+  delete_upper_line
+  echo -e "[ $(print_blue "SKIP") ] global dependencies ugrade."
+  ;;
+esac

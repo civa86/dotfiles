@@ -52,11 +52,11 @@ function run_service_install() {
 
   $CMD
 
-  if [ "$SERVICE" == "node"]; then nvm use default; fi
-
-  echo -e "\npress key to continue..."
+  hide_cursor
+  echo -ne "\npress key to continue..."
   read -d'' -s -n1
   INSTALL_IN_PROGRESS=
+  show_cursor
 }
 
 function get_available_services() {

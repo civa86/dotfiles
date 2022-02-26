@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 SCRIPTPATH="$(
   cd -- "$(dirname "$0")" >/dev/null 2>&1
   pwd -P
@@ -10,7 +8,7 @@ SCRIPTPATH="$(
 source $SCRIPTPATH/../utils.sh
 
 BASE_PATH=$(dirname $(dirname $SCRIPTPATH))
-FORMULAE="bash-completion rename git-flow jmeter jq ruby python yarn kubectl warrensbox/tap/tfswitch packer"
+FORMULAE="bash-completion rename git-flow watchman imagemagick jmeter jq ruby python yarn warrensbox/tap/tfswitch packer"
 
 if ! command -v brew &>/dev/null; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -32,13 +30,17 @@ else
   esac
 fi
 
+INSTALLED_FORMULAE=$(brew list)
 for F in $FORMULAE; do
   FORMULA_NAME=$(basename $F)
-  if brew list $F &>/dev/null; then
-    echo -e "[ $(print_blue "SKIP") ][ $(print_magenta $FORMULA_NAME) ] already installed."
-  else
-    brew install $F
+  CNT="$(echo $INSTALLED_FORMULAE | grep -c $FORMULA_NAME)"
+  if [ $CNT -eq 0 ]; then
+    echo -e "[ $(print_yellow $FORMULA_NAME) ] installing..."
+    brew install $F &>/dev/null
+    delete_upper_line
     echo -e "[ $(print_green "OK") ][ $(print_magenta $FORMULA_NAME) ] installed."
+  else
+    echo -e "[ $(print_blue "SKIP") ][ $(print_magenta $FORMULA_NAME) ] already installed."
   fi
 done
 
@@ -46,12 +48,13 @@ read -p "Upgrade any already installed formulae? [y/N] " FORMULAE_UPGRADE
 FORMULAE_UPGRADE=${FORMULAE_UPGRADE:-N}
 case "$FORMULAE_UPGRADE" in
 [yY])
-  brew upgrade
+  echo -e "[ $(print_yellow formulae) ] upgrading..."
+  brew upgrade &>/dev/null
   delete_upper_line
-  echo -e "[ $(print_green "OK") ] Formulae ugraded."
+  echo -e "[ $(print_green "OK") ] formulae ugraded."
   ;;
 *)
   delete_upper_line
-  echo -e "[ $(print_blue "SKIP") ] Formulae ugrade."
+  echo -e "[ $(print_blue "SKIP") ] formulae ugrade."
   ;;
 esac
