@@ -123,25 +123,25 @@ DOTFILES_PATH=~/Documents/dotfiles
 # *) echo $YELLOW"[SKIP] BASH setup"$COLOR_RESET ;;
 # esac
 
-echo ""
-echo $CYAN"[ VIM ]"$COLOR_RESET
-read -p "Configure VIM with .vimrc file? [Y/n] " SETUP_VIM
-SETUP_VIM=${SETUP_VIM:-Y}
-case "$SETUP_VIM" in
-[yY])
-  if [ ! -f ~/.vim/autoload/plug.vim ]; then
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    echo $GREEN"\t[OK] Download vim-plug."$COLOR_RESET
-  else
-    echo $YELLOW"\t[SKIP] Download vim-plug."$COLOR_RESET
-  fi
-  rm -rf ~/.vimrc
-  ln -s $DOTFILES_PATH/.vimrc ~/.vimrc
-  vim +PlugInstall +qall
-  echo $GREEN"\t[OK] VIM configuration applied correctly."$COLOR_RESET
-  ;;
-*) echo $YELLOW"[SKIP] VIM configuration"$COLOR_RESET ;;
-esac
+# echo ""
+# echo $CYAN"[ VIM ]"$COLOR_RESET
+# read -p "Configure VIM with .vimrc file? [Y/n] " SETUP_VIM
+# SETUP_VIM=${SETUP_VIM:-Y}
+# case "$SETUP_VIM" in
+# [yY])
+#   if [ ! -f ~/.vim/autoload/plug.vim ]; then
+#     curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+#     echo $GREEN"\t[OK] Download vim-plug."$COLOR_RESET
+#   else
+#     echo $YELLOW"\t[SKIP] Download vim-plug."$COLOR_RESET
+#   fi
+#   rm -rf ~/.vimrc
+#   ln -s $DOTFILES_PATH/.vimrc ~/.vimrc
+#   vim +PlugInstall +qall
+#   echo $GREEN"\t[OK] VIM configuration applied correctly."$COLOR_RESET
+#   ;;
+# *) echo $YELLOW"[SKIP] VIM configuration"$COLOR_RESET ;;
+# esac
 
 # echo ""
 # echo $CYAN"[ HOMEBREW ]"$COLOR_RESET
