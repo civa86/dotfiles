@@ -1,7 +1,16 @@
 #!/usr/bin/env bash
 
 function is_software_installed() {
-  if ! [ -x "$(command -v $1)" ]; then
+  if ! command -v $1 &>/dev/null; then
+    echo 0
+  else
+    echo 1
+  fi
+}
+
+function check_software() {
+  local IS_SOFTWARE_INSTALLED=$(is_software_installed $1)
+  if [ $IS_SOFTWARE_INSTALLED -eq 0 ]; then
     print_error "$1 is not installed" "$2"
   fi
 }

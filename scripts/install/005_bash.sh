@@ -14,7 +14,7 @@ rm -rf $HOME/.bash_profile
 ln -s $BASE_PATH/.bash_profile $HOME/.bash_profile
 
 # INSTALL COMPLETION
-is_software_installed brew
+check_software brew
 
 COMPLETION_FOLDER=$(brew --prefix)/etc/bash_completion.d
 

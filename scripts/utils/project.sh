@@ -33,10 +33,10 @@ function git_flow_release_prefix() {
 
 function get_package_type() {
   if [ -f $PWD/$NPM_PACKAGE_FILE ]; then
-    is_software_installed "npm" "Please visit: https://nodejs.org"
+    check_software "npm" "Please visit: https://nodejs.org"
     echo "npm"
   elif [ -f $PWD/$POETRY_PACKAGE_FILE ]; then
-    is_software_installed "poetry" "Please visit: https://python-poetry.org/"
+    check_software "poetry" "Please visit: https://python-poetry.org/"
     echo "poetry"
   fi
 }

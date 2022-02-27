@@ -73,7 +73,7 @@ RELEASE_NUM=${RELEASE_NUM//[[:blank:]]/}
 
 check_args $RELEASE_NUM
 
-is_software_installed "git" "Please visit: https://git-scm.com/"
+check_software "git" "Please visit: https://git-scm.com/"
 
 is_git_flow
 

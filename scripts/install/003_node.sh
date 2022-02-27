@@ -25,7 +25,7 @@ echo -e "[ $(print_yellow "Available Versions") ]"
 
 nvm ls | egrep "lts(.*)v"
 
-if command -v node &>/dev/null; then
+if [ $(is_software_installed node) -eq 1 ]; then
   CURRENT_NODE=$(node --version)
   NODE_V=$CURRENT_NODE
 fi

@@ -8,9 +8,9 @@ SCRIPTPATH="$(
 source $SCRIPTPATH/../utils.sh
 
 BASE_PATH=$(dirname $(dirname $SCRIPTPATH))
-FORMULAE="bash-completion rename git-flow watchman imagemagick jmeter jq ruby python yarn warrensbox/tap/tfswitch packer"
+FORMULAE="bash-completion rename git-flow watchman imagemagick jmeter jq ruby python yarn warrensbox/tap/tfswitch packer php"
 
-if ! command -v brew &>/dev/null; then
+if [ $(is_software_installed brew) -eq 0 ]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   echo -e "[ $(print_green "OK") ] Homebrew installed."
 else
