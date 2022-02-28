@@ -1,15 +1,43 @@
 #compdef dotfiles
 
-local -a AVAILABLE_CMDS
-
+local curcontext="$curcontext" state line ret=1
 local DOTFILES_PATH=$(readlink /usr/local/bin/dotfiles)
 local DOTFILES_CMDS_PATH=$(dirname $DOTFILES_PATH)
+local -a _1st_arguments
 
-for C in $(find $DOTFILES_CMDS_PATH/commands -name "*.sh" -type f | sort); do
-  local CMD_NAME=$(basename $C | sed "s/.sh//g")
-  local CMD_DESC=$(cat $C | grep "#completion_desc::" | awk -F'::' '{print $NF}')
+for cmd in $(find $DOTFILES_CMDS_PATH/commands -name "*.sh" -type f | sort); do
+  local cmd_name=$(basename $cmd | sed "s/.sh//g")
+  local cmd_desc=$(cat $cmd | grep "#completion_desc::" | awk -F'::' '{print $NF}')
 
-  AVAILABLE_CMDS+=("$CMD_NAME:$CMD_DESC")
+  _1st_arguments+=("$cmd_name:$cmd_desc")
 done
 
-_describe 'command' AVAILABLE_CMDS
+_arguments -C \
+  '1: :->cmds' \
+  '*: :->args' && ret=0
+
+__nvm_aliases() {
+  local aliases
+  aliases="asd lol dre"
+  echo "${aliases}"
+}
+
+case $state in
+cmds)
+  _describe -t commands 'dotfiles command' _1st_arguments && ret=0
+  ;;
+
+args)
+  case $words[2] in
+  aws_profiles)
+    _values 'aliases' $(__nvm_aliases) && ret=0
+    ;;
+  *)
+    ((ret)) && _message 'no more arguments'
+    ;;
+
+  esac
+  ;;
+esac
+
+return ret
