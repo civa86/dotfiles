@@ -14,7 +14,7 @@ if [ $(is_software_installed brew) -eq 0 ]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   echo -e "[ $(print_green "OK") ] Homebrew installed."
 else
-  echo -e "[ $(print_blue "SKIP") ] Homebrew already installed."
+  echo -e "[ $(print_cyan "SKIP") ] Homebrew already installed."
   read -p "Update Homebrew to the latest version? [y/N] " BREW_UPDATE
   BREW_UPDATE=${BREW_UPDATE:-N}
   case "$BREW_UPDATE" in
@@ -25,7 +25,7 @@ else
     ;;
   *)
     delete_upper_line
-    echo -e "[ $(print_blue "SKIP") ] Homebrew update."
+    echo -e "[ $(print_cyan "SKIP") ] Homebrew update."
     ;;
   esac
 fi
@@ -40,7 +40,7 @@ for F in $FORMULAE; do
     delete_upper_line
     echo -e "[ $(print_green "OK") ][ $(print_magenta $FORMULA_NAME) ] installed."
   else
-    echo -e "[ $(print_blue "SKIP") ][ $(print_magenta $FORMULA_NAME) ] already installed."
+    echo -e "[ $(print_cyan "SKIP") ][ $(print_magenta $FORMULA_NAME) ] already installed."
   fi
 done
 
@@ -55,6 +55,6 @@ case "$FORMULAE_UPGRADE" in
   ;;
 *)
   delete_upper_line
-  echo -e "[ $(print_blue "SKIP") ] formulae ugrade."
+  echo -e "[ $(print_cyan "SKIP") ] formulae ugrade."
   ;;
 esac

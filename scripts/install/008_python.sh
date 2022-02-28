@@ -15,12 +15,20 @@ if [ $(is_software_installed virtualenv) -eq 0 ]; then
   sudo pip3 install virtualenv
   echo -e "[ $(print_green "OK") ] virtualenv installed."
 else
-  echo -e "[ $(print_blue "SKIP") ] virtualenv already installed."
+  echo -e "[ $(print_cyan "SKIP") ] virtualenv already installed."
 fi
 
 if [ $(is_software_installed poetry) -eq 0 ]; then
   curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -
   echo -e "[ $(print_green "OK") ] poetry installed."
 else
-  echo -e "[ $(print_blue "SKIP") ] poetry already installed."
+  echo -e "[ $(print_cyan "SKIP") ] poetry already installed."
 fi
+
+# if [ -d $HOME/.oh-my-zsh ]; then
+#   mkdir -p $HOME/.oh-my-zsh/plugins/poetry
+#   poetry completions zsh >$HOME/.oh-my-zsh/plugins/poetry/_poetry
+#   echo -e "[ $(print_green "OK") ] poetry completion installed."
+# else
+#   echo -e "[ $(print_cyan "SKIP") ] poetry completion: Oh My Zsh folder not found."
+# fi

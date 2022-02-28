@@ -16,7 +16,7 @@ if [ ! -f $NVM_SCRIPT ]; then
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
   echo -e "[ $(print_green "OK") ] NVM installed."
 else
-  echo -e "[ $(print_blue "SKIP") ] NVM already installed."
+  echo -e "[ $(print_cyan "SKIP") ] NVM already installed."
 fi
 
 [ -s "$NVM_SCRIPT" ] && \. "$NVM_SCRIPT" # This loads nvm
@@ -48,7 +48,7 @@ case "$DEFAULT_NODE" in
   nvm alias default $NODE_V
   echo -e "[ $(print_green "OK") ][ $(print_magenta $NODE_V) ] default version."
   ;;
-*) echo -e "[ $(print_blue "SKIP") ][ $(print_magenta $NODE_V) ] default version." ;;
+*) echo -e "[ $(print_cyan "SKIP") ][ $(print_magenta $NODE_V) ] default version." ;;
 esac
 
 INSTALLED_GLOBAL_DEPS=$(npm list -g --json --depth 0)
@@ -60,7 +60,7 @@ for DEP in $GLOBAL_DEPS; do
     delete_upper_line
     echo -e "[ $(print_green "OK") ][ $(print_magenta $DEP) ] installed."
   else
-    echo -e "[ $(print_blue "SKIP") ][ $(print_magenta $DEP) ] already installed."
+    echo -e "[ $(print_cyan "SKIP") ][ $(print_magenta $DEP) ] already installed."
   fi
 done
 
@@ -75,6 +75,6 @@ case "$GLOBAL_DEPS_UPGRADE" in
   ;;
 *)
   delete_upper_line
-  echo -e "[ $(print_blue "SKIP") ] global dependencies ugrade."
+  echo -e "[ $(print_cyan "SKIP") ] global dependencies ugrade."
   ;;
 esac

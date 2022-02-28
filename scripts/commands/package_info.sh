@@ -38,4 +38,4 @@ if [ -z "$PACKAGE_TYPE" ]; then
   exit 1
 fi
 
-echo -e "[ $(print_blue "$(get_package_name $PACKAGE_TYPE)") ][ $(print_magenta "$(get_package_version $PACKAGE_TYPE)") ]\n"
+echo -e "[ $(print_cyan "$(get_package_name $PACKAGE_TYPE)") ][ $(print_magenta "$(get_package_version $PACKAGE_TYPE)") ]\n"

@@ -28,7 +28,7 @@ function print_yellow() {
   echo -e $YELLOW"$1"$COLOR_RESET
 }
 
-function print_blue() {
+function print_cyan() {
   echo -e $BLUE"$1"$COLOR_RESET
 }
 

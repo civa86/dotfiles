@@ -15,7 +15,7 @@ if [ ! -f $VIM_PATH/autoload/plug.vim ]; then
   curl -fLo $VIM_PATH/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   echo -e "[ $(print_green "OK") ] vim-plug installed."
 else
-  echo -e "[ $(print_blue "SKIP") ] vim-plug already installed."
+  echo -e "[ $(print_cyan "SKIP") ] vim-plug already installed."
 fi
 
 rm -rf $VIM_PROFILE_PATH

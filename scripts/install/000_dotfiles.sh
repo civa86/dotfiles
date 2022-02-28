@@ -14,7 +14,7 @@ WORKSPACE_PERSONAL="$WORKSPACE_PATH/civa86"
 
 # WORKSPACE
 if [ -d "$WORKSPACE_JOB" ] && [ -d "$WORKSPACE_PERSONAL" ]; then
-  echo -e "[ $(print_blue "SKIP") ] all workspaces are already in place."
+  echo -e "[ $(print_cyan "SKIP") ] all workspaces are already in place."
 else
   if [ ! -d "$WORKSPACE_PATH" ]; then
     mkdir -p $WORKSPACE_JOB $WORKSPACE_PERSONAL
