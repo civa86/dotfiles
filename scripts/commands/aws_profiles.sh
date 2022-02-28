@@ -18,12 +18,10 @@ function usage() {
 }
 
 function banner() {
-  # small
-  print_cyan "   ___      _____                   __ _ _        "
-  print_cyan "  /_\ \    / / __|    _ __ _ _ ___ / _(_) |___ ___"
-  print_cyan " / _ \ \/\/ /\__ \   | '_ \ '_/ _ \  _| | / -_|_-<"
-  print_cyan "/_/ \_\_/\_/ |___/   | .__/_| \___/_| |_|_\___/__/"
-  print_cyan "                     |_|                          "
+  print_cyan " ___          __ _ _        "
+  print_cyan "| _ \_ _ ___ / _(_) |___ ___"
+  print_cyan "|  _/ '_/ _ \  _| | / -_|_-<"
+  print_cyan "|_| |_| \___/_| |_|_\___/__/"
 }
 
 if [ "$1" == "help" ]; then usage && exit 0; fi

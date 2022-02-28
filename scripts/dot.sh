@@ -30,10 +30,10 @@ function usage() {
 }
 
 function banner() {
-  print_cyan ' ___   ___ _____ ___ ___ _    ___ ___  '
-  print_cyan '|   \ / _ \_   _| __|_ _| |  | __/ __| '
-  print_cyan '| |) | (_) || | | _| | || |__| _|\__ \ '
-  print_cyan '|___/ \___/ |_| |_| |___|____|___|___/ '
+  print_cyan " ___      _    __ _ _        "
+  print_cyan "|   \ ___| |_ / _(_) |___ ___"
+  print_cyan "| |) / _ \  _|  _| | / -_|_-<"
+  print_cyan "|___/\___/\__|_| |_|_\___/__/"
 }
 
 function get_available_commands() {
