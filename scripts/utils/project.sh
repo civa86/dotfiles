@@ -7,13 +7,25 @@ function parse_git_branch() {
   git branch 2>/dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/\1/ "
 }
 
-function current_version() {
+function get_package_version() {
   case $1 in
   npm)
     node -p -e "require(\"$PWD/$NPM_PACKAGE_FILE\").version"
     ;;
   poetry)
-    cat $PWD/$POETRY_PACKAGE_FILE | grep "version" | awk -F '=' '{print $NF}' | sed 's/"//g'
+    cat $PWD/$POETRY_PACKAGE_FILE | grep "version" | awk -F '=' '{print $NF}' | sed 's/"//g' | sed 's/ //g'
+    ;;
+  *) ;;
+  esac
+}
+
+function get_package_name() {
+  case $1 in
+  npm)
+    node -p -e "require(\"$PWD/$NPM_PACKAGE_FILE\").name"
+    ;;
+  poetry)
+    cat $PWD/$POETRY_PACKAGE_FILE | grep "name" | awk -F '=' '{print $NF}' | sed 's/"//g' | sed 's/ //g'
     ;;
   *) ;;
   esac
@@ -33,10 +45,10 @@ function git_flow_release_prefix() {
 
 function get_package_type() {
   if [ -f $PWD/$NPM_PACKAGE_FILE ]; then
-    check_software "npm" "Please visit: https://nodejs.org"
+    # check_software "npm" "Please visit: https://nodejs.org"
     echo "npm"
   elif [ -f $PWD/$POETRY_PACKAGE_FILE ]; then
-    check_software "poetry" "Please visit: https://python-poetry.org/"
+    # check_software "poetry" "Please visit: https://python-poetry.org/"
     echo "poetry"
   fi
 }

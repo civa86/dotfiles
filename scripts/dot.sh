@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
-set -e
-
+# ABSOLUTE SCRIPT PATH
+LINK=$(readlink $0)
+if [ -z "$LINK" ]; then
+  SCRIPTPATH=$0
+else
+  SCRIPTPATH=$LINK
+fi
 SCRIPTPATH="$(
-  cd -- "$(dirname "$0")" >/dev/null 2>&1
+  cd -- "$(dirname "$SCRIPTPATH")" >/dev/null 2>&1
   pwd -P
 )"
 

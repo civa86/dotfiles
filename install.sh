@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+export DOTFILES_HOME=$HOME/Documents/dotfiles
 
 SCRIPTPATH="$(
   cd -- "$(dirname "$0")" >/dev/null 2>&1

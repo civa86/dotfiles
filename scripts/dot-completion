@@ -1,0 +1,15 @@
+#compdef dotfiles
+
+local -a AVAILABLE_CMDS
+
+local DOTFILES_PATH=$(readlink /usr/local/bin/dotfiles)
+local DOTFILES_CMDS_PATH=$(dirname $DOTFILES_PATH)
+
+for C in $(find $DOTFILES_CMDS_PATH/commands -name "*.sh" -type f | sort); do
+  local CMD_NAME=$(basename $C | sed "s/.sh//g")
+  local CMD_DESC=$(cat $C | grep "#completion_desc::" | awk -F'::' '{print $NF}')
+
+  AVAILABLE_CMDS+=("$CMD_NAME:$CMD_DESC")
+done
+
+_describe 'command' AVAILABLE_CMDS

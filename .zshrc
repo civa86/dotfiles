@@ -5,11 +5,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export DOTFILES=$HOME/Documents/dotfiles
+export DOTFILES_HOME=$HOME/Documents/dotfiles
 
-source $DOTFILES/env/env.sh
-source $DOTFILES/env/path.sh
-source $DOTFILES/env/zsh-env.sh
+source $DOTFILES_HOME/env/env.sh
+source $DOTFILES_HOME/env/path.sh
+source $DOTFILES_HOME/env/zsh-env.sh
 
 plugins=(
   zsh-syntax-highlighting
@@ -24,6 +24,8 @@ plugins=(
   nvm
   terraform
   git-flow-completion
+  poetry
+  dotfiles
 )
 
 # SSH / SCP autocomplete
@@ -31,7 +33,7 @@ zstyle ':completion:*:(ssh|scp):*' hosts $hosts
 zstyle ':completion:*:(ssh|scp):*' users $users
 
 source $ZSH/oh-my-zsh.sh
-source $DOTFILES/env/aliases.sh
+source $DOTFILES_HOME/env/aliases.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

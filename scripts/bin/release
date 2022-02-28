@@ -88,7 +88,7 @@ if [ -z $PACKAGE_TYPE ]; then print_error "Invalid Package" "Release can work on
 
 echo -e "$CYAN[$PACKAGE_TYPE]$COLOR_RESET Package"
 
-CURRENT_VERSION="$(current_version $PACKAGE_TYPE)"
+CURRENT_VERSION="$(get_package_version $PACKAGE_TYPE)"
 if [ -z $CURRENT_VERSION ]; then print_error "Invalid Package" "Release can work only with npm or poetry packages"; fi
 
 is_new_release $RELEASE_NUM $CURRENT_VERSION

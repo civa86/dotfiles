@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+#completion_desc::List all profiles of AWS credential file
 
 SCRIPTPATH="$(
   cd -- "$(dirname "$0")" >/dev/null 2>&1
