@@ -72,8 +72,8 @@ __release() {
     local -a subcommands
     local PACKAGE_TYPE=$(get_package_type)
     if [ ! -z "$PACKAGE_TYPE" ]; then
-      local CURRENT_VERSION="$(get_package_version $PACKAGE_TYPE)"
-      subcommands=("$CURRENT_VERSION")
+      local NEW_VERSION="$(get_package_version $PACKAGE_TYPE | awk -F. '{$NF = $NF + 1;} 1' | sed 's/ /./g')"
+      subcommands=("$NEW_VERSION")
     else
       subcommands=("X.X.X")
     fi
