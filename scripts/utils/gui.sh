@@ -58,10 +58,10 @@ function separator() {
 }
 
 function print_error() {
-  print_red "Error"
+  echo -e "[ $(print_red "ERROR") ]"
   echo -e "\t$1"
   if [ ! -z "$2" ]; then
-    print_green "Hint"
+    echo -e "[ $(print_green "HINT") ]"
     echo -e "\t$2"
   fi
   echo -e "\n"

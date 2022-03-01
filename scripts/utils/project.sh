@@ -95,7 +95,7 @@ function is_git_status_clean() {
 function is_valid_sem_version() {
   local SEMVER_REGEX="^[0-9]+\.[0-9]+\.[0-9]+$"
   if [[ ! $1 =~ $SEMVER_REGEX ]]; then
-    print_error "Release number not valid" "Version Number is based on Semantic Versioning 2.0.0\n\tPlease visit: https://semver.org/"
+    print_error "Release number $(print_yellow $1) not valid" "Version Number is based on Semantic Versioning 2.0.0\n\tPlease visit: https://semver.org/"
   fi
 }
 
