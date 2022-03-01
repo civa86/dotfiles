@@ -95,8 +95,8 @@ while [[ $# -gt 0 ]]; do
     shift # past value
     ;;
   *)
-    print_red "Invalid arguments"
     usage
+    echo -e "\n[ $(print_red "ERROR") ] Invalid arguments."
     exit 1
     ;;
   esac

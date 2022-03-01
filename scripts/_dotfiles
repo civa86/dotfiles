@@ -1,0 +1,57 @@
+#compdef dotfiles
+
+DOTFILES_PATH=$(readlink /usr/local/bin/dotfiles)
+DOTFILES_CMDS_PATH=$(dirname $DOTFILES_PATH)
+
+_dotfiles() {
+  local curcontext="$curcontext" state line
+  typeset -A opt_args
+
+  _arguments -C \
+    ':command:->command' \
+    '*::options:->options'
+
+  case $state in
+  command)
+    local -a subcommands
+    for cmd in $(find $DOTFILES_CMDS_PATH/commands -name "*.sh" -type f | sort); do
+      local cmd_name=$(basename $cmd | sed "s/.sh//g")
+      local cmd_desc=$(cat $cmd | grep "#completion_desc::" | awk -F'::' '{print $NF}')
+      subcommands+=("$cmd_name:$cmd_desc")
+    done
+    _describe -t commands 'dotfiles' subcommands
+    ;;
+
+  options)
+    case $line[1] in
+    code_style)
+      __code_style
+      ;;
+    esac
+    ;;
+  esac
+}
+
+__code_style() {
+  local curcontext="$curcontext" state line
+  typeset -A opt_args
+
+  _arguments -C \
+    ':command:->command' \
+    '*::options:->options'
+
+  case $state in
+  command)
+    local -a subcommands
+    for r in $(cat $DOTFILES_CMDS_PATH/commands/code_style.sh | grep AVAILABLE_RULES= | awk -F"=" '{print $NF}' | sed 's/"//g'); do
+      subcommands+=("$r")
+    done
+    _describe -t commands 'dotfiles code_style' subcommands
+    ;;
+
+  options) ;;
+
+  esac
+}
+
+_dotfiles "$@"
