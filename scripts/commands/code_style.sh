@@ -21,7 +21,7 @@ function usage() {
   echo "SYNOPSIS"
   echo -e "\tdot code_style [--rule rule_name]"
   echo "OPTIONS"
-  echo -e "\t--rule | -r  (string)  rule name"
+  echo -e "\t-r, --rule  (string)  Name of the rule to copy"
   echo "RULES"
   for R in $AVAILABLE_RULES; do
     echo -e "\t- $R"

@@ -20,9 +20,9 @@ function usage() {
   echo "SYNOPSIS"
   echo -e "\tdot release [--close] <version>"
   echo "ARGUMENTS"
-  echo -e "\t- version  (string)  sem versioning compliant number"
+  echo -e "\t- version  (string)  SEM versioning compliant number"
   echo "OPTIONS"
-  echo -e "\t--close | -c  (string)  close the release at the end"
+  echo -e "\t-c, --close  (string)  Close the release at the end"
 }
 
 function banner() {

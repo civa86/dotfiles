@@ -27,7 +27,11 @@ _dotfiles() {
     code_style)
       __code_style
       ;;
+    release)
+      __release
+      ;;
     esac
+
     ;;
   esac
 }
@@ -50,6 +54,40 @@ __code_style() {
     ;;
 
   options) ;;
+
+  esac
+}
+
+__release() {
+  local curcontext="$curcontext" state line
+  typeset -A opt_args
+
+  _arguments -C \
+    ':command:->command' \
+    '*::options:->options'
+
+  case $state in
+  command)
+    source $DOTFILES_CMDS_PATH/utils.sh
+    local -a subcommands
+    local PACKAGE_TYPE=$(get_package_type)
+    if [ ! -z "$PACKAGE_TYPE" ]; then
+      local CURRENT_VERSION="$(get_package_version $PACKAGE_TYPE)"
+      subcommands=("$CURRENT_VERSION")
+    else
+      subcommands=("X.X.X")
+    fi
+    _describe -t commands 'dotfiles release' subcommands
+    ;;
+
+  options)
+    case $line[2] in
+    -* | --*)
+      _arguments \
+        --close'[Fetch from origin before performing finish]'
+      ;;
+    esac
+    ;;
 
   esac
 }

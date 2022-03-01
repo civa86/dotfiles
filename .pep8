@@ -1,0 +1,5 @@
+[pep8]
+max_line_length = 120
+aggressive = 3
+recursive = true
+ignore = ['E402']
