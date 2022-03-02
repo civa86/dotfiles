@@ -2,4 +2,4 @@
 max_line_length = 120
 aggressive = 3
 recursive = true
-ignore = ['E402']
+ignore = E402
