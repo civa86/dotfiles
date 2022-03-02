@@ -10,7 +10,7 @@ SCRIPTPATH="$(
 source $SCRIPTPATH/../utils.sh
 
 BASE_PATH=$(dirname $(dirname $SCRIPTPATH))
-AVAILABLE_RULES="prettier bash"
+AVAILABLE_RULES="prettier bash python"
 RULE=
 RULE_PATH=
 
@@ -64,6 +64,9 @@ prettier)
   ;;
 bash)
   RULE_PATH=$BASE_PATH/.editorconfig
+  ;;
+python)
+  RULE_PATH=$BASE_PATH/.pep8
   ;;
 *)
   usage
