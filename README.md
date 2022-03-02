@@ -21,25 +21,12 @@ One Repo to bring them all and in the MacBook bind them
 
 ## Setup dotfiles
 
-Clone the repository inside the `Documents` folder
+Clone the repository inside your `home` directory
 
 ```bash
-cd ~/Documents
+cd ~
 git clone https://github.com/civa86/dotfiles.git
-cd ~/Documents/dotfiles
-./setup.sh
-```
-
-#### Brew Setup
-
-```bash
-~/Documents/dotfiles/brew.sh
-```
-
-#### NodeJS Setup
-
-```bash
-~/Documents/dotfiles/node.sh
+./dotfiles/install.sh
 ```
 
 ## Terminal App
@@ -49,7 +36,7 @@ cd ~/Documents/dotfiles
 3. Menu: Terminal > Preferences (`Command` + `,`)
 4. Tab: Profiles
 5. Click on the Cog and then Import
-6. Select `~/Documents/dotfiles/terminal/dario.mac.terminal` > Open
+6. Select `~/dotfiles/terminal/dario.mac.terminal` > Open
 
 ## iTerm2
 
@@ -58,7 +45,7 @@ cd ~/Documents/dotfiles
 3. Menu: iTerm2 > Preferences (`Command` + `,`)
 4. Tab: Profiles
 5. Button Other Actions > Import JSON Profiles...
-6. Select `~/Documents/dotfiles/terminal/dario.iterm2.json` > Open
+6. Select `~/dotfiles/terminal/dario.iterm2.json` > Open
 
 ## Visual Studio Code
 

@@ -1,8 +1,5 @@
 #compdef dotfiles
 
-DOTFILES_PATH=$(readlink /usr/local/bin/dotfiles)
-DOTFILES_CMDS_PATH=$(dirname $DOTFILES_PATH)
-
 _dotfiles() {
   local curcontext="$curcontext" state line
   typeset -A opt_args
@@ -14,7 +11,7 @@ _dotfiles() {
   case $state in
   command)
     local -a subcommands
-    for cmd in $(find $DOTFILES_CMDS_PATH/commands -name "*.sh" -type f | sort); do
+    for cmd in $(find $DOTFILES_HOME/scripts/commands -name "*.sh" -type f | sort); do
       local cmd_name=$(basename $cmd | sed "s/.sh//g")
       local cmd_desc=$(cat $cmd | grep "#completion_desc::" | awk -F'::' '{print $NF}')
       subcommands+=("$cmd_name:$cmd_desc")
@@ -47,7 +44,7 @@ __code_style() {
   case $state in
   command)
     local -a subcommands
-    for r in $(cat $DOTFILES_CMDS_PATH/commands/code_style.sh | grep AVAILABLE_RULES= | awk -F"=" '{print $NF}' | sed 's/"//g'); do
+    for r in $(cat $DOTFILES_HOME/scripts/commands/code_style.sh | grep AVAILABLE_RULES= | awk -F"=" '{print $NF}' | sed 's/"//g'); do
       subcommands+=("$r")
     done
     _describe -t commands 'dotfiles code_style' subcommands
@@ -68,7 +65,7 @@ __release() {
 
   case $state in
   command)
-    source $DOTFILES_CMDS_PATH/utils.sh
+    source $DOTFILES_HOME/scripts/utils.sh
     local -a subcommands
     local PACKAGE_TYPE=$(get_package_type)
     if [ ! -z "$PACKAGE_TYPE" ]; then

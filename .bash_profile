@@ -1,4 +1,4 @@
-export DOTFILES_HOME=$HOME/Documents/dotfiles
+export DOTFILES_HOME=$HOME/dotfiles
 
 source $DOTFILES_HOME/env/env.sh
 source $DOTFILES_HOME/env/aliases.sh

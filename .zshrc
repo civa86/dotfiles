@@ -5,7 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export DOTFILES_HOME=$HOME/Documents/dotfiles
+export DOTFILES_HOME=$HOME/dotfiles
 
 source $DOTFILES_HOME/env/env.sh
 source $DOTFILES_HOME/env/path.sh
