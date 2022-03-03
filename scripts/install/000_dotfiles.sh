@@ -40,9 +40,10 @@ echo -e "[ $(print_green "OK") ] fonts installed."
 ln -sf $BASE_PATH/scripts/dotfiles.sh /usr/local/bin/dotfiles
 echo -e "[ $(print_green "OK") ] dot command linked."
 
-if [ -d $HOME/.oh-my-zsh ]; then
-  mkdir -p $HOME/.oh-my-zsh/plugins/dotfiles
-  ln -sf $BASE_PATH/scripts/_dotfiles $HOME/.oh-my-zsh/plugins/dotfiles/_dotfiles
+OHMYZSH_CUSTOM_PLUGINS="$HOME/.oh-my-zsh/custom/plugins"
+if [ -d "$OHMYZSH_CUSTOM_PLUGINS" ]; then
+  mkdir -p $OHMYZSH_CUSTOM_PLUGINS/dotfiles
+  ln -sf $BASE_PATH/scripts/_dotfiles $OHMYZSH_CUSTOM_PLUGINS/dotfiles/_dotfiles
   echo -e "[ $(print_green "OK") ] dot completion installed."
 else
   echo -e "[ $(print_yellow "SKIP") ] dot completion: oh my zsh not found."

@@ -12,8 +12,6 @@ source $DOTFILES_HOME/env/path.sh
 source $DOTFILES_HOME/env/zsh-env.sh
 
 plugins=(
-  zsh-syntax-highlighting
-  zsh-better-npm-completion
   yarn
   colored-man-pages
   cp
@@ -23,10 +21,13 @@ plugins=(
   docker-machine
   nvm
   terraform
-  git-flow-completion
   poetry
-  dotfiles
 )
+
+for CUSTOM_PLUGIN in $ZSH/custom/plugins/*; do
+  CUSTOM_PLUGIN_NAME=$(basename $CUSTOM_PLUGIN)
+  plugins+=("$CUSTOM_PLUGIN_NAME")
+done
 
 # SSH / SCP autocomplete
 zstyle ':completion:*:(ssh|scp):*' hosts $hosts

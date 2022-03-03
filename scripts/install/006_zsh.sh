@@ -57,4 +57,8 @@ rm -rf $HOME/.zshrc.pre*
 rm -rf $HOME/.zshrc
 ln -s $BASE_PATH/.zshrc $HOME/.zshrc
 
+if [ -d ${ZSH_CUSTOM:-$OMZ_PATH/custom}/plugins/example ]; then
+  rm -rf ${ZSH_CUSTOM:-$OMZ_PATH/custom}/plugins/example
+fi
+
 echo -e "[ $(print_green "OK") ] ZSH configuration applied."
