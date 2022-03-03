@@ -1,5 +1,7 @@
 #compdef dotfiles
 
+# Reload: unfunction _dotfiles && autoload -U _dotfiles
+
 _dotfiles() {
   local curcontext="$curcontext" state line
   typeset -A opt_args

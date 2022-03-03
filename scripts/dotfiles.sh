@@ -27,10 +27,10 @@ function help() {
 }
 
 function usage() {
-  echo "Usage: dot <command> [parameters]"
+  echo "Usage: dotfiles <command> [parameters]"
   echo -e "To see help text, you can run:\n"
-  echo -e "  dot help"
-  echo -e "  dot <command> help"
+  echo -e "  dotfiles help"
+  echo -e "  dotfiles <command> help"
   echo -e "[ $(print_red "ERROR") ] the following arguments are required: command."
 }
 
