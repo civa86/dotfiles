@@ -103,10 +103,10 @@ function version_gt() {
   test "$(printf '%s\n' "$@" | sort -V | head -n 1)" != "$1"
 }
 
-function is_new_release() {
-  if [ "$1" == $2 ]; then
-    print_error "version $1 already in place"
-  fi
+function is_valid_release() {
+  # if [ "$1" == $2 ]; then
+  #   print_error "version $1 already in place"
+  # fi
 
   if version_gt $2 $1; then
     print_error "version $YELLOW$1$COLOR_RESET must be grater than current $CYAN$2$COLOR_RESET"

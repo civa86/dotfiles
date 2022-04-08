@@ -104,9 +104,13 @@ echo -e "[ $(print_cyan "PACKAGE") ][ $(print_magenta $PACKAGE_TYPE) ]"
 CURRENT_VERSION="$(get_package_version $PACKAGE_TYPE)"
 if [ -z $CURRENT_VERSION ]; then print_error "Invalid Package" "Release can work only with npm or poetry packages"; fi
 
-is_new_release $RELEASE_NUM $CURRENT_VERSION
+is_valid_release $RELEASE_NUM $CURRENT_VERSION
 
-echo -e "[ $(print_cyan "VERSION") ][ $(print_magenta $CURRENT_VERSION) ][ $(print_yellow $RELEASE_NUM) ]"
+if [ "$RELEASE_NUM" == "$CURRENT_VERSION" ]; then
+  echo -e "[ $(print_cyan "VERSION") ][ $(print_yellow $RELEASE_NUM) ]"
+else
+  echo -e "[ $(print_cyan "VERSION") ][ $(print_magenta $CURRENT_VERSION) -> $(print_yellow $RELEASE_NUM) ]"
+fi
 
 read -p "Do you want to proceed? [y/N] " CONFIRM_RELEASE
 CONFIRM_RELEASE=${CONFIRM_RELEASE:-N}
