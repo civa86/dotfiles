@@ -46,3 +46,8 @@ tool = vscode
 cmd = code --wait --diff $LOCAL $REMOTE
 [credential]
 helper = osxkeychain
+[pull]
+rebase = false
+ff = true
+[fetch]
+prune = true
