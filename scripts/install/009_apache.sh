@@ -15,10 +15,10 @@ cat $BASE_PATH/apache/000-default.conf | sed "s|HOME|$HOME|" >$VHOST_PATH/000-de
 echo -e "[ $(print_green "OK") ] vhosts configuration applied."
 
 DOCUMENT_ROOT=$(cat $VHOST_PATH/000-default.conf | grep DocumentRoot | awk -F" " '{print $NF}' | sed 's|"||g')
-cp $BASE_PATH/apache/info.php $DOCUMENT_ROOT/info.php
+# cp $BASE_PATH/apache/info.php $DOCUMENT_ROOT/info.php
 
 echo -e "[ $(print_yellow "WARN") ] Super User required!"
-sudo bash -c "cat $BASE_PATH/apache/httpd.conf | sed 's|HOME|$HOME|g' >/etc/apache2/httpd.conf"
+sudo bash -c "cat $BASE_PATH/apache/httpd.conf | sed -e 's|HOME|$HOME|g' -e 's|WWW_USER|$USER|g' >/etc/apache2/httpd.conf"
 echo -e "[ $(print_green "OK") ] apache configuration applied."
 
 apachectl configtest

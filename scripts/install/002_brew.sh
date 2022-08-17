@@ -8,7 +8,7 @@ SCRIPTPATH="$(
 source $SCRIPTPATH/../utils.sh
 
 BASE_PATH=$(dirname $(dirname $SCRIPTPATH))
-FORMULAE="bash-completion openssl rename git-flow watchman watch imagemagick jmeter jq ruby python yarn warrensbox/tap/tfswitch packer php"
+FORMULAE="bash-completion openssl rename git-flow watchman watch imagemagick jmeter jq ruby pyenv yarn warrensbox/tap/tfswitch packer php tree"
 
 if [ $(is_software_installed brew) -eq 0 ]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
