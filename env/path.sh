@@ -2,12 +2,15 @@
 #export PATH="$HOME/.gem/ruby/2.3.0/bin:$HOME/.rbenv/bin:/Applications/MySQLWorkbench.app/Contents/MacOS:$PATH"
 EXPORT_PATH="$HOME/.gem/ruby/2.3.0/bin:$HOME/.rbenv/bin"
 
-# HOMEBREW MAC ARM
+# HOMEBREW APPLE SILICON
 if [ -d /opt/homebrew/bin ]; then
   EXPORT_PATH="$EXPORT_PATH:/opt/homebrew/bin"
 fi
+if [ -d /opt/homebrew/opt/jpeg ]; then
+  EXPORT_PATH="$EXPORT_PATH:/opt/homebrew/opt/jpeg/bin"
+fi
 
-# ADD POETRY IF INSTALLED
+# POETRY
 if [ -d $HOME/.poetry/bin ]; then
   EXPORT_PATH="$EXPORT_PATH:$HOME/.poetry/bin"
 fi

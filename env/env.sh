@@ -22,3 +22,10 @@ export POETRY_VIRTUALENVS_IN_PROJECT=true
 
 # HOMEBREW
 export HOMEBREW_NO_AUTO_UPDATE=1
+
+# APPLE SILICON JPEG
+if [ -d /opt/homebrew/opt/jpeg ]; then
+  export LDFLAGS="-L/opt/homebrew/opt/jpeg/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/jpeg/include"
+  export PKG_CONFIG_PATH="/opt/homebrew/opt/jpeg/lib/pkgconfig"
+fi
