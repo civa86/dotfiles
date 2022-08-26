@@ -29,3 +29,6 @@ if [ -d /opt/homebrew/opt/jpeg ]; then
   export CPPFLAGS="-I/opt/homebrew/opt/jpeg/include"
   export PKG_CONFIG_PATH="/opt/homebrew/opt/jpeg/lib/pkgconfig"
 fi
+
+# TFENV
+export TFENV_ARCH=$(arch)
