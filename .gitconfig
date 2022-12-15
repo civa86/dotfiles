@@ -51,3 +51,5 @@ rebase = false
 ff = true
 [fetch]
 prune = true
+[push]
+	autoSetupRemote = true
