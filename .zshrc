@@ -18,7 +18,7 @@ plugins=(
   aws
   docker
   docker-compose
-  docker-machine
+  kubectl
   nvm
   terraform
   poetry
@@ -56,3 +56,5 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init --path)"
   eval "$(pyenv init -)"
 fi
+
+source $HOME/.docker/init-zsh.sh || true

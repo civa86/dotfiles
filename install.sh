@@ -23,16 +23,10 @@ function usage() {
   done
 }
 
-function banner() {
-  print_cyan " ___      _    __ _ _        "
-  print_cyan "|   \ ___| |_ / _(_) |___ ___"
-  print_cyan "| |) / _ \  _|  _| | / -_|_-<"
-  print_cyan "|___/\___/\__|_| |_|_\___/__/"
-}
-
 function print_recap() {
   clear
-  banner
+
+  banner "Dotfiles"
 
   RESULT=
 

@@ -17,22 +17,22 @@ function usage() {
   echo -e "\tdot aws_profiles"
 }
 
-function banner() {
-  print_cyan " ___          __ _ _        "
-  print_cyan "| _ \_ _ ___ / _(_) |___ ___"
-  print_cyan "|  _/ '_/ _ \  _| | / -_|_-<"
-  print_cyan "|_| |_| \___/_| |_|_\___/__/"
-}
-
 if [ "$1" == "help" ]; then usage && exit 0; fi
 
 clear
-banner
+
+banner "AWS"
+
+echo -e "[ $(print_yellow "CREDENTIALS") ]"
 
 if [ -f ~/.aws/credentials ]; then
-  cat ~/.aws/credentials | egrep -i "\[(.*)\]" | sed "s/\[/- /g" | sed "s/\]//g"
-else
-  echo -e "\n[ $(print_yellow "WARN") ] No AWS credentials found."
+  cat ~/.aws/credentials | grep -v default | egrep -i "\[(.*)\]" | sed "s/\[/- /g" | sed "s/\]//g"
+fi
+
+echo -e "\n[ $(print_yellow "SSO") ]"
+
+if [ -f ~/.aws/config ]; then
+  cat ~/.aws/config | grep -v default | egrep -i "\[(.*)\]" | sed "s/profile//g" | sed "s/ //g" | sed "s/\[/- /g" | sed "s/\]//g"
 fi
 
 echo ""

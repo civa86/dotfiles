@@ -157,3 +157,8 @@ function select_box() {
 
   SELECT_BOX_CHOICE=${LIST[$CHOICE]}
 }
+
+function banner() {
+  local str=$1
+  print_cyan "$(figlet -f small "$str")"
+}

@@ -34,13 +34,6 @@ function usage() {
   echo -e "[ $(print_red "ERROR") ] the following arguments are required: command."
 }
 
-function banner() {
-  print_cyan " ___      _    __ _ _        "
-  print_cyan "|   \ ___| |_ / _(_) |___ ___"
-  print_cyan "| |) / _ \  _|  _| | / -_|_-<"
-  print_cyan "|___/\___/\__|_| |_|_\___/__/"
-}
-
 function get_available_commands() {
   local ALL_COMMANDS=$(find $COMMANDS_PATH -name "*.sh" -type f -exec bash -c 'basename $0' {} \; | sort)
   ALL_COMMANDS=$(echo $ALL_COMMANDS | sed "s/\.sh//g" | sed "s/[0-9][0-9][0-9]_//g")

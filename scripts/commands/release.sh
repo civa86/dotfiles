@@ -25,13 +25,6 @@ function usage() {
   echo -e "\t-c, --close  (string)  Close the release at the end"
 }
 
-function banner() {
-  print_cyan " ___     _                  "
-  print_cyan "| _ \___| |___ __ _ ___ ___ "
-  print_cyan "|   / -_) / -_) _\` (_-</ -_)"
-  print_cyan "|_|_\___|_\___\__,_/__/\___|"
-}
-
 function release_finish_output() {
   delete_upper_line
   delete_upper_line
@@ -82,7 +75,8 @@ ARG=$(echo $ARGUMENTS | awk -F" " '{print $NF}')
 if [ "$ARG" == "help" ]; then usage && exit 0; fi
 
 clear
-banner
+
+banner "Release"
 
 RELEASE_NUM=$ARG
 

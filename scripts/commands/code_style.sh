@@ -29,14 +29,6 @@ function usage() {
 
 }
 
-function banner() {
-  print_cyan "  ___         _     ___ _        _     "
-  print_cyan " / __|___  __| |___/ __| |_ _  _| |___ "
-  print_cyan "| (__/ _ \/ _\` / -_)__ \  _| || | / -_)"
-  print_cyan " \___\___/\__,_\___|___/\__|\_, |_\___|"
-  print_cyan "                            |__/       "
-}
-
 # PARSE ARGUMENTS
 if [ "$1" == "help" ]; then
   usage && exit 0
@@ -48,7 +40,8 @@ fi
 trap ctrl_c INT
 
 clear
-banner
+
+banner "CodeStyle"
 
 if [ -z "$RULE" ]; then
   select_box $AVAILABLE_RULES
@@ -56,7 +49,8 @@ if [ -z "$RULE" ]; then
 fi
 
 clear
-banner
+
+banner "CodeStyle"
 
 case $RULE in
 prettier)
