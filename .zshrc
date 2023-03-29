@@ -19,6 +19,7 @@ plugins=(
   docker
   docker-compose
   kubectl
+  helm
   nvm
   terraform
   poetry
