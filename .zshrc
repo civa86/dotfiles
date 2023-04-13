@@ -53,9 +53,15 @@ if [ -x "$(command -v groovy)" ]; then
   export GROOVY_HOME=/usr/local/opt/groovy/libexec
 fi
 
+# pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init --path)"
   eval "$(pyenv init -)"
+fi
+
+# bitwarden cli (https://bitwarden.com/help/cli/)
+if command -v bw 1>/dev/null 2>&1; then
+  eval "$(bw completion --shell zsh); compdef _bw bw;"
 fi
 
 source $HOME/.docker/init-zsh.sh || true
