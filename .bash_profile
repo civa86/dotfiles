@@ -24,6 +24,4 @@ fi
 # RUBY rbenv
 if which rbenv >/dev/null; then eval "$(rbenv init -)"; fi
 
-export PATH="$HOME/.poetry/bin:$PATH"
-
 source $HOME/.docker/init-zsh.sh || true

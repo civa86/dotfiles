@@ -10,9 +10,9 @@ if [ -d /opt/homebrew/opt/jpeg ]; then
   EXPORT_PATH="$EXPORT_PATH:/opt/homebrew/opt/jpeg/bin"
 fi
 
-# POETRY
-if [ -d $HOME/.poetry/bin ]; then
-  EXPORT_PATH="$EXPORT_PATH:$HOME/.poetry/bin"
+# LOCALS
+if [ -d $HOME/.local/bin ]; then
+  EXPORT_PATH="$EXPORT_PATH:$HOME/.local/bin"
 fi
 
 # PYENV

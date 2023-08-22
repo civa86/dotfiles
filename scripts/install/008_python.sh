@@ -19,7 +19,7 @@ else
 fi
 
 if [ $(is_software_installed poetry) -eq 0 ]; then
-  curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -
+  curl -sSL https://install.python-poetry.org | python3 -
   echo -e "[ $(print_green "OK") ] poetry installed."
 else
   echo -e "[ $(print_cyan "SKIP") ] poetry already installed."
