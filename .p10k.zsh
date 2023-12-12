@@ -49,7 +49,6 @@
     virtualenv              # python virtual environment (https://docs.python.org/3/library/venv.html)
     # anaconda                # conda environment (https://conda.io/)
     # pyenv                   # python environment (https://github.com/pyenv/pyenv)
-    poetry
     # goenv                   # go environment (https://github.com/syndbg/goenv)
     # nodenv                  # node.js version from nodenv (https://github.com/nodenv/nodenv)
     # nvm                     # node.js version from nvm (https://github.com/nvm-sh/nvm)
@@ -99,6 +98,8 @@
     # battery               # internal battery
     # wifi                  # wifi speed
     # example               # example user-defined segment (see prompt_example function below)
+    my_poetry
+    my_aws_profile
   )
 
   # Defines character set used by powerlevel10k. It's best to let `p10k configure` set it for you.
@@ -1479,12 +1480,19 @@
     p10k segment -f 208 -i '⭐' -t 'hello, %n'
   }
 
-  function prompt_poetry() {
+  function prompt_my_poetry() {
     local POETRY_PACKAGE_FILE="pyproject.toml"
     if ! zstat -A size +size $POETRY_PACKAGE_FILE 2>/dev/null; then return; fi
     local POETRY_PACKAGE_VERSION=$(cat $POETRY_PACKAGE_FILE | grep "version" | awk -F '=' '{print $NF}' | sed 's/"//g' | sed 's/ //g')
-    p10k segment -f 208 -i 'PACKAGE_ICON' -r -t ${POETRY_PACKAGE_VERSION}
+    p10k segment -f 'magenta' -i 'PACKAGE_ICON' -r -t ${POETRY_PACKAGE_VERSION}
   }
+
+  function prompt_my_aws_profile() {
+    if [ -z "$AWS_PROFILE" ]; then return; fi
+    p10k segment -f 208 -i 'AWS_ICON' -r -t ${AWS_PROFILE}
+  }
+
+
 
   # User-defined prompt segments may optionally provide an instant_prompt_* function. Its job
   # is to generate the prompt segment for display in instant prompt. See
