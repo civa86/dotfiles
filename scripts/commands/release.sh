@@ -112,7 +112,28 @@ case "$CONFIRM_RELEASE" in
 [yY])
   delete_upper_line
 
+  OLD_RELEASE=$(git branch | grep "release/")
+
+  if [ ! -z "$OLD_RELEASE" ]; then
+    OLD_RELEASE=$(echo $OLD_RELEASE | sed -e "s/ //g")
+    echo -e "[ $(print_yellow "OLD RELEASE IN LOCAL BRANCHES") ]"
+    read -p "Do you want to remove release $(print_cyan $OLD_RELEASE) from local branches? [Y/n] " CONFIRM_DELETE_OLD_RELEASE
+    CONFIRM_DELETE_OLD_RELEASE=${CONFIRM_DELETE_OLD_RELEASE:-Y}
+    case "$CONFIRM_DELETE_OLD_RELEASE" in
+    [yY])
+      delete_upper_line
+      delete_upper_line
+      git branch -D $OLD_RELEASE &>/dev/null
+      ;;
+    *)
+      echo -e "[ $(print_red "ERROR") ] release aborted.\n"
+      exit 1
+      ;;
+    esac
+  fi
+
   git flow release start "v$RELEASE_NUM" &>/dev/null
+
   update_version $RELEASE_NUM $PACKAGE_TYPE &>/dev/null
   git add . &>/dev/null
   git commit -m "release candidate v$RELEASE_NUM" &>/dev/null
