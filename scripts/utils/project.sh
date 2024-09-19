@@ -75,6 +75,14 @@ function is_in_git_flow_dev_branch() {
   fi
 }
 
+function force_git_flow_dev_branch() {
+  local DEV_BRANCH=$(git_flow_dev_branch)
+  CHECK=$(is_in_git_flow_dev_branch)
+  if [ $? -ne 0 ]; then
+    git checkout $DEV_BRANCH
+  fi
+}
+
 function is_in_git_flow_release_branch() {
   local RELEASE_PREFIX=$(git_flow_release_prefix)
   local CURRENT_BRANCH=$(parse_git_branch)

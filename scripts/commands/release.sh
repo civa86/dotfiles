@@ -41,6 +41,9 @@ function close_release() {
   else
     FINAL_MESSAGE=$(echo -e "[ $(print_cyan "SKIP") ] no remote origin.")
   fi
+
+  force_git_flow_dev_branch
+
   release_finish_output
   echo -e "$FINAL_MESSAGE\n"
 }
