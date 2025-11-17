@@ -65,3 +65,5 @@ if command -v bw 1>/dev/null 2>&1; then
 fi
 
 source $HOME/.docker/init-zsh.sh || true
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
