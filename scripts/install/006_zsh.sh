@@ -18,9 +18,25 @@ else
   echo -e "[ $(print_cyan "SKIP") ] $LABEL already installed."
 fi
 
+LABEL="Auto Suggestion Plugin"
+if [ ! -d ${ZSH_CUSTOM:-$OMZ_PATH/custom}/plugins/zsh-autosuggestions ]; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$OMZ_PATH/custom}/plugins/zsh-autosuggestions
+  echo -e "[ $(print_green "OK") ] $LABEL installed."
+else
+  echo -e "[ $(print_cyan "SKIP") ] $LABEL already installed."
+fi
+
 LABEL="Syntax Highlighting Plugin"
 if [ ! -d ${ZSH_CUSTOM:-$OMZ_PATH/custom}/plugins/zsh-syntax-highlighting ]; then
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$OMZ_PATH/custom}/plugins/zsh-syntax-highlighting
+  echo -e "[ $(print_green "OK") ] $LABEL installed."
+else
+  echo -e "[ $(print_cyan "SKIP") ] $LABEL already installed."
+fi
+
+LABEL="History Substring Search Plugin"
+if [ ! -d ${ZSH_CUSTOM:-$OMZ_PATH/custom}/plugins/zsh-history-substring-search ]; then
+  git clone https://github.com/zsh-users/zsh-history-substring-search.git ${ZSH_CUSTOM:-$OMZ_PATH/custom}/plugins/zsh-history-substring-search
   echo -e "[ $(print_green "OK") ] $LABEL installed."
 else
   echo -e "[ $(print_cyan "SKIP") ] $LABEL already installed."
