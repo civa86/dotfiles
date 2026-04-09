@@ -49,7 +49,6 @@ helper = osxkeychain
 [pull]
 rebase = false
 ff = true
-autoSetupRemote = true
 [fetch]
 prune = true
 [push]
