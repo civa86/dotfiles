@@ -49,7 +49,10 @@ helper = osxkeychain
 [pull]
 rebase = false
 ff = true
+autoSetupRemote = true
 [fetch]
 prune = true
 [push]
-	autoSetupRemote = true
+autoSetupRemote = true
+[init]
+defaultBranch = main
