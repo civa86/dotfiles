@@ -20,4 +20,9 @@ if [ -d $HOME/.pyenv ]; then
   EXPORT_PATH="$EXPORT_PATH:$HOME/.pyenv"
 fi
 
+# MEGA CMD
+if [ -d /Applications/MEGAcmd.app/Contents/MacOS ]; then
+  EXPORT_PATH="$EXPORT_PATH:/Applications/MEGAcmd.app/Contents/MacOS"
+fi
+
 export PATH="$EXPORT_PATH:$PATH"

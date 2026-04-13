@@ -10,6 +10,7 @@ export DOTFILES_HOME=$HOME/dotfiles
 source $DOTFILES_HOME/env/env.sh
 source $DOTFILES_HOME/env/path.sh
 source $DOTFILES_HOME/env/zsh-env.sh
+source $DOTFILES_HOME/env/functions.sh
 
 plugins=(
   yarn
@@ -58,8 +59,13 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # bitwarden cli (https://bitwarden.com/help/cli/)
-if command -v bw 1>/dev/null 2>&1; then
-  eval "$(bw completion --shell zsh); compdef _bw bw;"
+# if command -v bw 1>/dev/null 2>&1; then
+#   eval "$(bw completion --shell zsh); compdef _bw bw;"
+# fi
+
+# Mega CMD completion
+if [ -f /Applications/MEGAcmd.app/Contents/MacOS/megacmd_completion.sh ]; then
+  source /Applications/MEGAcmd.app/Contents/MacOS/megacmd_completion.sh
 fi
 
 source $HOME/.docker/init-zsh.sh || true
