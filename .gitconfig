@@ -30,6 +30,8 @@ l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(
 
 [includeIf "gitdir:~/Workspace/reply/"]
 path = .gitconfig-work
+[includeIf "gitdir:~/Workspace/experiments/"]
+path = .gitconfig-work
 [includeIf "gitdir:~/Workspace/civa86/"]
 path = .gitconfig-personal
 [includeIf "gitdir:~/dotfiles/"]
