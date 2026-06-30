@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": ["Bash(cat:*)", "Bash(npm:*)", "Bash(yarn:*)", "Bash(pip:*)"]
+  },
+  "model": "opus[1m]",
+  "effortLevel": "high"
+}
