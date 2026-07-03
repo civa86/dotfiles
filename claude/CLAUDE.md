@@ -26,6 +26,7 @@
 - Always use arrow functions over classic `function` declarations.
 - Prefer `const` over `let` whenever possible.
 - Never use `var` — it causes hoisting problems.
+- In Typescript Array always prefer the syntax Array<T> instead of <T>[]
 
 ## Formatting
 
