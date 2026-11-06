@@ -20,6 +20,16 @@ while IFS= read -r -d '' FILE; do
   rm -f "$TARGET"
   ln -s "$FILE" "$TARGET"
   echo -e "[ $(print_green "OK") ] linked $REL."
-done < <(find $CLAUDE_SRC -type f -print0)
+done < <(find $CLAUDE_SRC -path $CLAUDE_SRC/skills -prune -o -type f ! -name .DS_Store -print0)
+
+if [ -d "$CLAUDE_SRC/skills" ]; then
+  mkdir -p "$CLAUDE_PATH/skills"
+  while IFS= read -r -d '' DIR; do
+    TARGET=$CLAUDE_PATH/skills/$(basename "$DIR")
+    rm -rf "$TARGET"
+    ln -s "$DIR" "$TARGET"
+    echo -e "[ $(print_green "OK") ] linked skills/$(basename "$DIR")."
+  done < <(find $CLAUDE_SRC/skills -mindepth 1 -maxdepth 1 -type d -print0)
+fi
 
 echo -e "[ $(print_green "OK") ] claude configuration applied."

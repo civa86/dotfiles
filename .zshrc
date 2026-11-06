@@ -63,11 +63,6 @@ fi
 #   eval "$(bw completion --shell zsh); compdef _bw bw;"
 # fi
 
-# Mega CMD completion
-if [ -f /Applications/MEGAcmd.app/Contents/MacOS/megacmd_completion.sh ]; then
-  source /Applications/MEGAcmd.app/Contents/MacOS/megacmd_completion.sh
-fi
-
 source $HOME/.docker/init-zsh.sh || true
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
